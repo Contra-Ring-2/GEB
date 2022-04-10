@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalTeleporter : MonoBehaviour {
+public class collideTest : MonoBehaviour
+{
 
 	public GameObject player;
 	public Transform receiver;
@@ -26,14 +27,14 @@ public class PortalTeleporter : MonoBehaviour {
 
 
 		if (playerIsOverlapping)
-		{
-
+			{
+	
 			Vector3 portalToPlayer = player_transform.position - transform.position;
 			float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 
 			if (dotProduct < 0f)
 			{
-
+				
 				float rotationDiff = -Quaternion.Angle(transform.rotation, receiver.rotation);
 				rotationDiff += 180f;
 				player_transform.Rotate(Vector3.up, rotationDiff);
@@ -42,8 +43,8 @@ public class PortalTeleporter : MonoBehaviour {
 				player.SetActive(false);
 				setActiveNextTick = true;
 				player_transform.position = receiver.position + positionOffset;
-
-
+				
+				 
 				playerIsOverlapping = false;
 			}
 
