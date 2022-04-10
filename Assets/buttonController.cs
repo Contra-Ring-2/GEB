@@ -21,15 +21,15 @@ public class buttonController : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Box(new Rect(160, 80, 100, 100),"Menu");
-        if (GUI.Button(new Rect(180, 110, 60, 20), "Play"))
+        GUI.Box(new Rect(70, 40, 80, 80), "Menu");
+        if (GUI.Button(new Rect(80, 60, 65, 15), "Play(f1)") || Input.GetKey("f1"))
         {
             Debug.Log("press play");
             ring.Play();
             audiomv.Play();
 
         }
-        if (GUI.Button(new Rect(180, 140, 60, 20), "Pause"))
+        if (GUI.Button(new Rect(80, 80, 65, 15), "Pause(f2)") || Input.GetKey("f2"))
         {
             Debug.Log("press pause");
             ring.Pause();
