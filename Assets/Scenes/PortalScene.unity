@@ -1613,6 +1613,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4974975298291208154, guid: 0cb2678b611eb584d9bfba4d8392becd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4974975298328532618, guid: 0cb2678b611eb584d9bfba4d8392becd, type: 3}
       propertyPath: playerCamera
       value: 
