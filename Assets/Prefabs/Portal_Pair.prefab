@@ -421,9 +421,10 @@ GameObject:
   - component: {fileID: 4974975297431234872}
   - component: {fileID: 4974975297431234870}
   - component: {fileID: 4974975297431234871}
+  - component: {fileID: 1136053844383232079}
   m_Layer: 0
   m_Name: RenderPlaneA
-  m_TagString: Untagged
+  m_TagString: RenderPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,6 +492,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1136053844383232079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974975297431234873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10.000002}
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
 --- !u!1 &4974975297652081530
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,9 +765,10 @@ GameObject:
   - component: {fileID: 4974975297938659552}
   - component: {fileID: 4974975297938659582}
   - component: {fileID: 4974975297938659583}
+  - component: {fileID: 6525417132640546435}
   m_Layer: 0
   m_Name: RenderPlaneB
-  m_TagString: Untagged
+  m_TagString: RenderPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -821,6 +836,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6525417132640546435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974975297938659553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0.00000047683716}
 --- !u!1 &4974975297980458422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1146,7 @@ GameObject:
   - component: {fileID: 4974975298619995842}
   - component: {fileID: 4974975298619995843}
   m_Layer: 0
-  m_Name: PortalsManager
+  m_Name: LinkingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
