@@ -9,14 +9,13 @@ using UnityEngine;
 /// </summary>
 public class MusicGroup : MonoBehaviour
 {
-    //public AudioSource[] sources;
+    // beats per minute
+    public float tempo = 60.0f;
 
     public AudioSource normalSource;
     public AudioSource vFlipSource;
     public AudioSource hFlipSource;
     public AudioSource vHFlipSource;
-
-    //public float waitDuration;
 
     public enum FlipModifier
     {
@@ -27,12 +26,14 @@ public class MusicGroup : MonoBehaviour
     }
 
     /// <summary>
-    /// Play music with specified modifier after specific seconds
+    /// Play music with specified modifier after specific beats
     /// </summary>
     /// <param name="modifier">flip modifier</param>
-    /// <param name="seconds">interval seconds</param>
-    public void PlayMusicAfter(FlipModifier modifier, float seconds)
+    /// <param name="beats">interval beats</param>
+    public void PlayMusicAfter(FlipModifier modifier, float beats)
     {
+        float seconds = (60/tempo) * beats;
+
         MasterModel.TheModel.CallbackInSecond(
             seconds,
             () =>

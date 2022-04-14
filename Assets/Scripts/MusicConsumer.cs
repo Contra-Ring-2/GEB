@@ -9,9 +9,14 @@ using UnityEngine;
 public class MusicConsumer : MonoBehaviour
 {
     public MusicGroup.FlipModifier modifier;
-    public float waitDuration;
+    public float waitBeats;
 
     private MusicGroup musicGroup;
+
+    public void PlayMusic()
+    {
+        musicGroup.PlayMusicAfter(modifier, waitBeats);
+    }
 
     // Start is called before the first frame update
     void Start()
