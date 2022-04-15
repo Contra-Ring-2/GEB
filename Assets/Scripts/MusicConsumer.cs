@@ -15,7 +15,7 @@ public class MusicConsumer : MonoBehaviour
 
     public void PlayMusic()
     {
-        musicGroup.PlayMusicAfter(modifier, waitBeats);
+        musicGroup.PlayConsumerMusic(this);
     }
 
     // Start is called before the first frame update

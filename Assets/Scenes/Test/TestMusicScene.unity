@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ccab71ec6a8ac469764ce8c34b47fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 60
+  tempo: 70
   normalSource: {fileID: 0}
   vFlipSource: {fileID: 0}
   hFlipSource: {fileID: 0}

@@ -12,10 +12,10 @@ public class MusicGroup : MonoBehaviour
     // beats per minute
     public float tempo = 60.0f;
 
-    public AudioSource normalSource;
-    public AudioSource vFlipSource;
-    public AudioSource hFlipSource;
-    public AudioSource vHFlipSource;
+    public AudioClip normalSource;
+    public AudioClip vFlipSource;
+    public AudioClip hFlipSource;
+    public AudioClip vHFlipSource;
 
     public enum FlipModifier
     {
@@ -30,20 +30,25 @@ public class MusicGroup : MonoBehaviour
     /// </summary>
     /// <param name="modifier">flip modifier</param>
     /// <param name="beats">interval beats</param>
-    public void PlayMusicAfter(FlipModifier modifier, float beats)
+    public void PlayConsumerMusic(MusicConsumer consumer)
     {
+        FlipModifier modifier = consumer.modifier;
+        float beats = consumer.waitBeats;
+        
+        AudioSource source = consumer.GetComponent<AudioSource>();
         float seconds = (60/tempo) * beats;
 
         MasterModel.TheModel.CallbackInSecond(
             seconds,
             () =>
                 {
-                    GetMusicSource(modifier).Play();
+                    source.clip = GetMusicSource(modifier);
+                    source.Play();
                 }
         );
     }
 
-    public AudioSource GetMusicSource(FlipModifier modifier)
+    public AudioClip GetMusicSource(FlipModifier modifier)
     {
         switch(modifier)
         {
@@ -66,7 +71,9 @@ public class MusicGroup : MonoBehaviour
 
     public void ConfigureConsumer(MusicConsumer consumer)
     {
-
+        consumer.gameObject.AddComponent<AudioSource>();
+        
+        // config sources?
     }
 
     // Start is called before the first frame update
