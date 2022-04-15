@@ -13,9 +13,22 @@ public class MusicConsumer : MonoBehaviour
 
     private MusicGroup musicGroup;
 
+    /// <summary>
+    /// Play music with consumer specified argument
+    /// </summary>
     public void PlayMusic()
     {
-        musicGroup.PlayConsumerMusic(this);
+        AudioSource source = GetComponent<AudioSource>();
+        float seconds = (60 / musicGroup.tempo) * waitBeats;
+
+        MasterModel.TheModel.CallbackInSecond(
+            seconds,
+            () =>
+            {
+                source.clip = musicGroup.GetMusicSource(modifier);
+                source.Play();
+            }
+        );
     }
 
     // Start is called before the first frame update
@@ -24,7 +37,8 @@ public class MusicConsumer : MonoBehaviour
         musicGroup = transform.parent.GetComponent<MusicGroup>();
         Debug.Assert(musicGroup != null, "MusicCosumer needs a parent MusicGroup object");
 
-        musicGroup.ConfigureConsumer(this);
+        // configure consumer
+        gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame

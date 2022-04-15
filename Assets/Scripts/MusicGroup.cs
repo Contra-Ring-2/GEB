@@ -25,29 +25,6 @@ public class MusicGroup : MonoBehaviour
         VHFLIP = 3,
     }
 
-    /// <summary>
-    /// Play music with specified modifier after specific beats
-    /// </summary>
-    /// <param name="modifier">flip modifier</param>
-    /// <param name="beats">interval beats</param>
-    public void PlayConsumerMusic(MusicConsumer consumer)
-    {
-        FlipModifier modifier = consumer.modifier;
-        float beats = consumer.waitBeats;
-        
-        AudioSource source = consumer.GetComponent<AudioSource>();
-        float seconds = (60/tempo) * beats;
-
-        MasterModel.TheModel.CallbackInSecond(
-            seconds,
-            () =>
-                {
-                    source.clip = GetMusicSource(modifier);
-                    source.Play();
-                }
-        );
-    }
-
     public AudioClip GetMusicSource(FlipModifier modifier)
     {
         switch(modifier)
@@ -67,13 +44,6 @@ public class MusicGroup : MonoBehaviour
             default:
                 throw new ArgumentException("invalid modifier");
         }
-    }
-
-    public void ConfigureConsumer(MusicConsumer consumer)
-    {
-        consumer.gameObject.AddComponent<AudioSource>();
-        
-        // config sources?
     }
 
     // Start is called before the first frame update
