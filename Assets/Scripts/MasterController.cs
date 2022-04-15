@@ -7,7 +7,6 @@ public class MasterController : MonoBehaviour
     // singleton
     public static MasterController TheController { get; private set; } = null;
 
-#region INTERNAL [DO NOT MODIFY]
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +19,4 @@ public class MasterController : MonoBehaviour
     {
         
     }
-#endregion
 }

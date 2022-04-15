@@ -25,8 +25,6 @@ public class MasterModel : MonoBehaviour
         StartCoroutine(callbackRoutine());
     }
 
-#region INTERNAL [DO NOT MODIFY]
-
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +37,4 @@ public class MasterModel : MonoBehaviour
     {
         
     }
-#endregion
 }
