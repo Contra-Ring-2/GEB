@@ -11,6 +11,8 @@ public class MusicConsumer : MonoBehaviour
     public MusicGroup.FlipModifier modifier;
     public float waitBeats;
 
+    // TODO: speed, pitch?
+
     private MusicGroup musicGroup;
 
     /// <summary>
@@ -21,14 +23,29 @@ public class MusicConsumer : MonoBehaviour
         AudioSource source = GetComponent<AudioSource>();
         float seconds = (60 / musicGroup.tempo) * waitBeats;
 
-        MasterModel.TheModel.CallbackInSecond(
-            seconds,
-            () =>
-            {
-                source.clip = musicGroup.GetMusicSource(modifier);
-                source.Play();
-            }
-        );
+        source.clip = musicGroup.GetMusicSource(modifier);
+        source.PlayDelayed(seconds);
+
+        //MasterModel.TheModel.CallbackInSecond(
+        //    seconds,
+        //    () =>
+        //    {
+        //        //source.clip = musicGroup.GetMusicSource(modifier);
+
+        //        //Debug.Log("Playing music: " + source.clip);
+        //        source.Play();
+        //    }
+        //);
+    }
+
+    public void PauseMusic()
+    {
+        GetComponent<AudioSource>().Pause();
+    }
+
+    public void StopMusic()
+    {
+        GetComponent<AudioSource>().Stop();
     }
 
     // Start is called before the first frame update
@@ -39,6 +56,7 @@ public class MusicConsumer : MonoBehaviour
 
         // configure consumer
         gameObject.AddComponent<AudioSource>();
+        musicGroup.AddConsumer(this);
     }
 
     // Update is called once per frame

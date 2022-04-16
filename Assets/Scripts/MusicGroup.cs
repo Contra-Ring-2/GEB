@@ -9,6 +9,14 @@ using UnityEngine;
 /// </summary>
 public class MusicGroup : MonoBehaviour
 {
+    public enum FlipModifier
+    {
+        NORMAL = 0,
+        VFLIP = 1,
+        HFLIP = 2,
+        VHFLIP = 3,
+    }
+
     // beats per minute
     public float tempo = 60.0f;
 
@@ -17,13 +25,7 @@ public class MusicGroup : MonoBehaviour
     public AudioClip hFlipSource;
     public AudioClip vHFlipSource;
 
-    public enum FlipModifier
-    {
-        NORMAL = 0,
-        VFLIP = 1,
-        HFLIP = 2,
-        VHFLIP = 3,
-    }
+    private readonly List<MusicConsumer> consumers = new List<MusicConsumer>();
 
     public AudioClip GetMusicSource(FlipModifier modifier)
     {
@@ -46,10 +48,39 @@ public class MusicGroup : MonoBehaviour
         }
     }
 
+    public void PlayAllMusic()
+    {
+        foreach (MusicConsumer consumer in consumers)
+        {
+            consumer.PlayMusic();
+        }
+    }
+
+    public void PauseAllMusic()
+    {
+        foreach (MusicConsumer consumer in consumers)
+        {
+            consumer.PauseMusic();
+        }
+    }
+
+    public void StopAllMusic()
+    {
+        foreach (MusicConsumer consumer in consumers)
+        {
+            consumer.StopMusic();
+        }
+    }
+
+    public void AddConsumer(MusicConsumer consumer)
+    {
+        consumers.Add(consumer);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Assert(normalSource != null);
+        Debug.Assert(normalSource != null, "normal source should be available");
     }
 
     // Update is called once per frame
