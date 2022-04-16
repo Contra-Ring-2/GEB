@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Controller of a music group (for music benches). <br/>
@@ -17,6 +18,9 @@ public class MusicGroup : MonoBehaviour
         VHFLIP = 3,
     }
 
+    // master mixer group (e.g. Default > Master)
+    public UnityEngine.Audio.AudioMixerGroup masterMixerGroup;
+
     // beats per minute
     public float tempo = 60.0f;
 
@@ -26,6 +30,21 @@ public class MusicGroup : MonoBehaviour
     public AudioClip vHFlipSource;
 
     private readonly List<MusicConsumer> consumers = new List<MusicConsumer>();
+
+    public AudioMixerGroup GetMixerGroup(int keyShift)
+    {
+        // TODO: optimize this
+        string targetName = string.Format("Music{0}", keyShift);
+
+        AudioMixerGroup[] mixers = masterMixerGroup.audioMixer.FindMatchingGroups(targetName);
+        Debug.Assert(mixers != null && mixers.Length > 0, string.Format("cannot find mixer {0}", targetName));
+
+        if (mixers.Length > 1)
+        {
+            Debug.LogWarning(string.Format("found more than one matching mixer of '{0}': {1}", targetName, mixers));
+        }
+        return mixers[0];
+    }
 
     public AudioClip GetMusicSource(FlipModifier modifier)
     {
@@ -81,6 +100,8 @@ public class MusicGroup : MonoBehaviour
     void Start()
     {
         Debug.Assert(normalSource != null, "normal source should be available");
+        //Debug.Assert(defaultMixerGroup != null, "mixer group should be available (could be [Default > Master])");
+
     }
 
     // Update is called once per frame

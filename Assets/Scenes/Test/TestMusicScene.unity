@@ -168,6 +168,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifier: 0
   waitBeats: 8
+  keyShift: 0
+  speedMultiplier: 1
+  isEnabled: 1
+--- !u!1 &642633078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642633079}
+  - component: {fileID: 642633080}
+  m_Layer: 0
+  m_Name: NormalBoxWaited2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &642633079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642633078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2025479362}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &642633080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642633078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec568ceabeabd941bc8010404ed5d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
+  waitBeats: 16
+  keyShift: -8
+  speedMultiplier: 1
+  isEnabled: 1
 --- !u!1 &1951033131
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifier: 0
   waitBeats: 0
+  keyShift: 8
+  speedMultiplier: 1
+  isEnabled: 1
 --- !u!1 &2025479361
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +301,7 @@ Transform:
   m_Children:
   - {fileID: 1951033132}
   - {fileID: 300102291}
+  - {fileID: 642633079}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,8 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ccab71ec6a8ac469764ce8c34b47fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterMixerGroup: {fileID: 24300002, guid: beecd41cabfe5c749b5e698bd4f5b4ec, type: 2}
   tempo: 70
-  normalSource: {fileID: 8300000, guid: 76fb75b5cdf4d79409f41bfb363ee89c, type: 3}
+  normalSource: {fileID: 8300000, guid: 2d5e5267b4196114b974795bf788d71c, type: 3}
   vFlipSource: {fileID: 0}
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}

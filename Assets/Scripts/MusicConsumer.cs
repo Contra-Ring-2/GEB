@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Playable music comsumer. <br/>
@@ -8,8 +10,13 @@ using UnityEngine;
 /// </summary>
 public class MusicConsumer : MonoBehaviour
 {
-    public MusicGroup.FlipModifier modifier;
-    public float waitBeats;
+    public MusicGroup.FlipModifier modifier = MusicGroup.FlipModifier.NORMAL;
+    public float waitBeats = 0.0f;
+    
+    public int keyShift = 0;
+    public float speedMultiplier = 1.0f;
+
+    public bool isEnabled = false;
 
     // TODO: speed, pitch?
 
@@ -20,10 +27,17 @@ public class MusicConsumer : MonoBehaviour
     /// </summary>
     public void PlayMusic()
     {
+        if (!isEnabled)
+        {
+            return;
+        }
+
         AudioSource source = GetComponent<AudioSource>();
         float seconds = (60 / musicGroup.tempo) * waitBeats;
 
         source.clip = musicGroup.GetMusicSource(modifier);
+        source.outputAudioMixerGroup = musicGroup.GetMixerGroup(keyShift);
+
         source.PlayDelayed(seconds);
 
         //MasterModel.TheModel.CallbackInSecond(
@@ -54,8 +68,16 @@ public class MusicConsumer : MonoBehaviour
         musicGroup = transform.parent.GetComponent<MusicGroup>();
         Debug.Assert(musicGroup != null, "MusicCosumer needs a parent MusicGroup object");
 
+        //if (targetTempo == 0.0f)
+        //{
+        //    targetTempo = musicGroup.tempo;
+        //}
+
         // configure consumer
         gameObject.AddComponent<AudioSource>();
+        //GetComponent<AudioSource>().outputAudioMixerGroup = Instantiate(musicGroup.defaultMixerGroup);
+        //GetComponent<AudioSource>().outputAudioMixerGroup = musicGroup.defaultMixerGroup;
+
         musicGroup.AddConsumer(this);
     }
 
