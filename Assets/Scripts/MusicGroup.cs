@@ -17,6 +17,9 @@ public class MusicGroup : MonoBehaviour
         VHFLIP = 3,
     }
 
+    // default mixer group (e.g. Default > Master > PitchedMusic)
+    public UnityEngine.Audio.AudioMixerGroup defaultMixerGroup;
+
     // beats per minute
     public float tempo = 60.0f;
 
@@ -81,6 +84,8 @@ public class MusicGroup : MonoBehaviour
     void Start()
     {
         Debug.Assert(normalSource != null, "normal source should be available");
+        Debug.Assert(defaultMixerGroup != null, "mixer group should be available (could be [Default > Master > PitchedMusic])");
+
     }
 
     // Update is called once per frame
