@@ -63,15 +63,41 @@ public class RingControl : MonoBehaviour
 
     }
 
-    void UpdateNotes()
+    void UpdateNotes(float time, float spc)
     {
-        for(int i = 0; i < arcs.Length; i++)
+        Color _color1 = arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
+        Color _color2 = _color1 * 1.2f;
+        for (int i = 0; i < arcs.Length; i++)
         {
-            if(local_notes[i].start_time<1 && local_notes[i].end_time > 1)
+            if(local_notes[i].start_time < time && local_notes[i].end_time > time)
             {
-
+                arcs[i].GetComponent<Renderer>().material.color = _color2;
+            }
+            else
+            {
+                arcs[i].GetComponent<Renderer>().material.color = _color1;
+            }
+            if(local_notes[i].start_time <time-spc/2 && local_notes[i].end_time > time - spc / 2)
+            {
+                float _p = ((time - spc / 2) - local_notes[i].start_time) / (local_notes[i].end_time - local_notes[i].start_time);
+                arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
+            }
+            if (local_notes[i].start_time < time + spc / 2 && local_notes[i].end_time > time + spc / 2)
+            {
+                float _p = (local_notes[i].end_time - (time + spc / 2)) / (local_notes[i].end_time - local_notes[i].start_time);
+                arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
             }
         }
+    }
+
+    public void Pause()
+    {
+
+    }
+
+    public void Stop()
+    {
+
     }
 
     // Update is called once per frame
