@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+using Note = MusicGroup.Note;
+
 public class RingControl : MonoBehaviour
 {
-    public GameObject arc;
+    public GameObject arc_prefab;
     public float _circle_time = 6; //material's cycle time
     public GameObject[] arcs;
-    public int time = 1;
 
     private RingGroup ringGroup;
 
     // Note -> MusicGroup.Note
+    private Note[] local_notes;
 
     // Start is called before the first frame update
     private GameObject newArc;
@@ -24,12 +26,14 @@ public class RingControl : MonoBehaviour
         ringGroup.AddControl(this);
     }
 
-    public void CreateRing(MusicGroup.Note[] notes,float spc,float hieght_range)
+    public void CreateRing(Note[] notes,float spc,float hieght_range)
     {
+        local_notes = notes;
+
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
         {
-            GameObject newarc = Instantiate(arc);
+            GameObject newarc = Instantiate(arc_prefab);
             Material mat_newarc = Instantiate(newarc.GetComponent<Renderer>().material);
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
@@ -47,16 +51,56 @@ public class RingControl : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// output:
-    ///     play()
-    /// </summary>
-    /// 
-    void FirstRing()
+
+    public void Play()
     {
-        //trigger_enter
-        
+        float timer = Time.time;
+        for(int i = 0; i < arcs.Length; i++)
+        {
+            if(timer <  local_notes[i].end_time)
+            {
+
+            }
+        }
     }
+
+    void UpdateNotes(float time, float spc)
+    {
+        Color _color1 = arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
+        Color _color2 = _color1 * 1.2f;
+        for (int i = 0; i < arcs.Length; i++)
+        {
+            if(local_notes[i].start_time < time && local_notes[i].end_time > time)
+            {
+                arcs[i].GetComponent<Renderer>().material.color = _color2;
+            }
+            else
+            {
+                arcs[i].GetComponent<Renderer>().material.color = _color1;
+            }
+            if(local_notes[i].start_time <time-spc/2 && local_notes[i].end_time > time - spc / 2)
+            {
+                float _p = ((time - spc / 2) - local_notes[i].start_time) / (local_notes[i].end_time - local_notes[i].start_time);
+                arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
+            }
+            if (local_notes[i].start_time < time + spc / 2 && local_notes[i].end_time > time + spc / 2)
+            {
+                float _p = (local_notes[i].end_time - (time + spc / 2)) / (local_notes[i].end_time - local_notes[i].start_time);
+                arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
+            }
+        }
+    }
+
+    public void Pause()
+    {
+
+    }
+
+    public void Stop()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -73,9 +117,4 @@ public class RingControl : MonoBehaviour
         //    time++;
         //}
     }
-
-    // temp
-    public void Play() { throw new ArgumentException("NONONONO?"); }
-    public void Pause() { throw new ArgumentException("NONONONO?"); }
-    public void Stop() { throw new ArgumentException("NONONONO?"); }
 }
