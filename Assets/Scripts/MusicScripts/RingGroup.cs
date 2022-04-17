@@ -9,7 +9,6 @@ using UnityEngine;
 /// </summary>
 public class RingGroup : MonoBehaviour
 {
-/*
 	private readonly List<RingControl> rings = new List<RingControl>();
 
 	public void PlayAllRings()
@@ -40,5 +39,4 @@ public class RingGroup : MonoBehaviour
 	{
 		rings.Add(ring);
 	}
-*/
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class RingControl : MonoBehaviour
@@ -9,12 +10,18 @@ public class RingControl : MonoBehaviour
     public GameObject[] arcs;
     public int time = 1;
 
+    private RingGroup ringGroup;
+
     // Note -> MusicGroup.Note
 
     // Start is called before the first frame update
     private GameObject newArc;
     void Start()
     {
+        ringGroup = transform.parent.GetComponent<RingGroup>();
+        Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
+
+        ringGroup.AddControl(this);
     }
 
     public void CreateRing(MusicGroup.Note[] notes,float spc,float hieght_range)
@@ -48,7 +55,7 @@ public class RingControl : MonoBehaviour
     void FirstRing()
     {
         //trigger_enter
-
+        
     }
     // Update is called once per frame
     void Update()
@@ -66,4 +73,9 @@ public class RingControl : MonoBehaviour
         //    time++;
         //}
     }
+
+    // temp
+    public void Play() { throw new ArgumentException("NONONONO?"); }
+    public void Pause() { throw new ArgumentException("NONONONO?"); }
+    public void Stop() { throw new ArgumentException("NONONONO?"); }
 }

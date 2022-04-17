@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MusicPanel : MonoBehaviour
 {
-/*
-	private List<Ring> rings = new List<Ring>;
+
+	private List<RingControl> rings = new List<RingControl>();
 	
 
 	private void OnTriggerEnter(Collider other)
@@ -28,14 +28,12 @@ public class MusicPanel : MonoBehaviour
 
 	private void StartExhibition(GameObject player) // 請開始表演
 	{
-
-		rings = GetRings();
 		foreach(RingControl ring in rings){
 			ring.Play();
 		}
-		GetComponent<MusicGroup>().Play();
+
+		GetComponent<MusicGroup>().PlayAllMusic();
 
 	}
-*/
 }
 
