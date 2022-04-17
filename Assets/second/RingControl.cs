@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RingControl : MonoBehaviour
 {
-    public GameObject arc;
+    public GameObject arc_prefab;
     public float _circle_time = 6; //material's cycle time
     public GameObject[] arcs;
-    public int time = 1;
 
+    private Note[] local_notes;
 
     public class Note
     {
@@ -24,10 +24,12 @@ public class RingControl : MonoBehaviour
 
     public void CreateRing(Note[] notes,float spc,float hieght_range)
     {
+        local_notes = notes;
+
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
         {
-            GameObject newarc = Instantiate(arc);
+            GameObject newarc = Instantiate(arc_prefab);
             Material mat_newarc = Instantiate(newarc.GetComponent<Renderer>().material);
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
@@ -45,16 +47,33 @@ public class RingControl : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// output:
-    ///     play()
-    /// </summary>
-    /// 
-    void FirstRing()
+
+    public void Play()
     {
-        //trigger_enter
+
+        float timer = Time.time;
+        for(int i = 0; i < arcs.Length; i++)
+        {
+            if(timer <  local_notes[i].end_time)
+            {
+
+            }
+        }
+        
 
     }
+
+    void UpdateNotes()
+    {
+        for(int i = 0; i < arcs.Length; i++)
+        {
+            if(local_notes[i].start_time<1 && local_notes[i].end_time > 1)
+            {
+
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
