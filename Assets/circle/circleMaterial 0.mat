@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: circleMaterial 0
-  m_Shader: {fileID: -6465566751694194690, guid: ec20a23645e2c1441b4bc965a7ad6008,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ec20a23645e2c1441b4bc965a7ad6008, type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -45,6 +44,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture_:
         m_Texture: {fileID: 2800000, guid: 78407f366159eae41b84258abdbfd8db, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture_Circle_:
+        m_Texture: {fileID: 2800000, guid: 298940470b482374faab067222f48301, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -132,9 +135,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Alpha_: 1
     - Angle: 0.46
+    - Angle_: 0.3
     - Radius_: 0
-    - RotateSpeed_: 3.43
+    - Radius_inner_: 1
+    - Radius_outer_: 0
+    - RotateSpeed_: 1
+    - StartTime: 0
+    - StartTime_: 0
     - Vector1_F67909B7: 35
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -256,7 +265,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_: {r: 274.37408, g: 8.142975, b: 0, a: 0}
+    - Color_: {r: 118.035385, g: 0, b: 0, a: 1}
     - Color_8CF54167: {r: 1, g: 0.8787473, b: 0, a: 1}
     - Color_95364A6F: {r: 2, g: 0, b: 0, a: 0}
     - RotateSpeed_: {r: 0, g: 1, b: 0, a: 0}
@@ -278,3 +287,4 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
