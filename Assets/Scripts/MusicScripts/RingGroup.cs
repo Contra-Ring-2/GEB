@@ -19,7 +19,7 @@ public class RingGroup : MonoBehaviour
 		}
 	}
 
-	public void PauseAllMusic()
+	public void PauseAllRings()
 	{
 		foreach (RingControl ring in rings)
 		{
@@ -27,11 +27,19 @@ public class RingGroup : MonoBehaviour
 		}
 	}
 
-	public void StopAllMusic()
+	public void StopAllRings()
 	{
 		foreach (RingControl ring in rings)
 		{
 			ring.Stop();
+		}
+	}
+
+	public void UpdateAllRingNotes(float time, float spc)
+    {
+		foreach (RingControl ring in rings)
+		{
+			ring.UpdateNotes(time, spc);
 		}
 	}
 

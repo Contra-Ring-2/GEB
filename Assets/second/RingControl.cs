@@ -54,17 +54,10 @@ public class RingControl : MonoBehaviour
 
     public void Play()
     {
-        float timer = Time.time;
-        for(int i = 0; i < arcs.Length; i++)
-        {
-            if(timer <  local_notes[i].end_time)
-            {
 
-            }
-        }
     }
 
-    void UpdateNotes(float time, float spc)
+    public void UpdateNotes(float time, float spc)
     {
         Color _color1 = arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
         Color _color2 = _color1 * 1.2f;

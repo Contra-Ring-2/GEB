@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +26,7 @@ public class MusicPanel : MonoBehaviour
 		}
 	}
 
-	private void StartExhibition(GameObject player) // �ж}�l���t
+	private void StartExhibition(GameObject player) // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
 	{
 		foreach(RingControl ring in rings){
 			ring.Play();
@@ -34,6 +34,20 @@ public class MusicPanel : MonoBehaviour
 
 		GetComponent<MusicGroup>().PlayAllMusic();
 
+		float startTime = Time.time;
+		float spc = 8 * (60 / GetComponent<MusicGroup>().tempo); // is this 8?
+
+		void UpdateExhibition()
+        {
+			GetComponent<RingGroup>().UpdateAllRingNotes(startTime, spc);
+			MasterModel.TheModel.CallbackWaitingFor(new WaitForFixedUpdate(), UpdateExhibition);
+		}
+
+		MasterModel.TheModel.CallbackInSecond(
+			0,
+			UpdateExhibition
+		);
 	}
+
 }
 

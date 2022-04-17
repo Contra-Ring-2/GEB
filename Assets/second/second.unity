@@ -404,11 +404,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfe27cf7ee0c72428bdf8040f9cf925, type: 3}
---- !u!1 &948384300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abfe27cf7ee0c72428bdf8040f9cf925, type: 3}
-  m_PrefabInstance: {fileID: 948384299}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1134816058
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1403629583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1990169871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,10 +797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arc: {fileID: 948384300}
+  arc_prefab: {fileID: 0}
   _circle_time: 6
   arcs: []
-  time: 1
 --- !u!4 &1990169872
 Transform:
   m_ObjectHideFlags: 0

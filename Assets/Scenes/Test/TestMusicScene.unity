@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300102291}
   - component: {fileID: 300102292}
+  - component: {fileID: 300102293}
   m_Layer: 0
   m_Name: NormalBoxWaited
   m_TagString: Untagged
@@ -171,6 +172,21 @@ MonoBehaviour:
   keyShift: 0
   speedMultiplier: 1
   isEnabled: 1
+--- !u!114 &300102293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300102290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 0}
+  _circle_time: 6
+  arcs: []
 --- !u!1 &642633078
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642633079}
   - component: {fileID: 642633080}
+  - component: {fileID: 642633081}
   m_Layer: 0
   m_Name: NormalBoxWaited2
   m_TagString: Untagged
@@ -219,6 +236,21 @@ MonoBehaviour:
   keyShift: -8
   speedMultiplier: 1
   isEnabled: 1
+--- !u!114 &642633081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642633078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 0}
+  _circle_time: 6
+  arcs: []
 --- !u!1 &1951033131
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951033132}
   - component: {fileID: 1951033133}
+  - component: {fileID: 1951033134}
   m_Layer: 0
   m_Name: NormalBox
   m_TagString: Untagged
@@ -267,6 +300,21 @@ MonoBehaviour:
   keyShift: 8
   speedMultiplier: 1
   isEnabled: 1
+--- !u!114 &1951033134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951033131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 0}
+  _circle_time: 6
+  arcs: []
 --- !u!1 &2025479361
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,9 +326,11 @@ GameObject:
   - component: {fileID: 2025479362}
   - component: {fileID: 2025479365}
   - component: {fileID: 2025479364}
+  - component: {fileID: 2025479367}
+  - component: {fileID: 2025479369}
   - component: {fileID: 2025479363}
   - component: {fileID: 2025479366}
-  - component: {fileID: 2025479367}
+  - component: {fileID: 2025479368}
   m_Layer: 0
   m_Name: MusicBench_2T
   m_TagString: Untagged
@@ -323,6 +373,7 @@ MonoBehaviour:
   vFlipSource: {fileID: 0}
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
+  normalMusicXML: {fileID: 0}
 --- !u!23 &2025479364
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -397,3 +448,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2025479368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025479361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3cd20a6abeb7642ac3fcc1957c6390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2025479369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025479361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ecbd9ae3f57744d930816007aa7a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
