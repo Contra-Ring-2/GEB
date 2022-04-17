@@ -5,10 +5,6 @@ using UnityEngine;
 public class MusicPanel : MonoBehaviour
 {
 /*
-	public List<Ring> GetRings(){
-
-	}
-
 	private List<Ring> rings = new List<Ring>;
 	
 
