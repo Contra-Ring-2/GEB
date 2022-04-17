@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -60,6 +61,73 @@ public class MusicConsumer : MonoBehaviour
     public void StopMusic()
     {
         GetComponent<AudioSource>().Stop();
+    }
+
+    public MusicGroup.Note[] GetNotes()
+    {
+        List<MusicGroup.Note> notes = new List<MusicGroup.Note>();
+        if (musicGroup.normalMusicXML == null)
+        {
+            // two tiger
+            float[] tigerNotes =
+            {
+                1, 1,
+                2, 1,
+                3, 1,
+                1, 1,
+
+                1, 1,
+                2, 1,
+                3, 1,
+                1, 1,
+
+                3,   1,
+                4,   1,
+                5,   2,
+
+                3,   1,
+                4,   1,
+                5,   2,
+
+                5, .5F,
+                6, .5F,
+                5, .5F,
+                4, .5F,
+                3,   1,
+                1,   1,
+
+                5, .5F,
+                6, .5F,
+                5, .5F,
+                4, .5F,
+                3,   1,
+                1,   1,
+
+                 1, 1,
+                -2, 1,
+                 1, 2,
+
+                 1, 1,
+                -2, 1,
+                 1, 2,
+            };
+
+            {
+                float sumTime = 0;
+                for (int i = 0; i < tigerNotes.Length; i += 2)
+                {
+                    float height = tigerNotes[i];
+                    float duration = tigerNotes[i + 1];
+
+                    float startTime = sumTime;
+                    float endTime = startTime + duration;
+
+                    notes.Add(new MusicGroup.Note { startTime = startTime, endTime = endTime, height = height });
+                }
+            }
+        }
+
+        return notes.ToArray();
     }
 
     // Start is called before the first frame update

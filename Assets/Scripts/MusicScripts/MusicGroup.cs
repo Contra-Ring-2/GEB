@@ -10,6 +10,15 @@ using UnityEngine.Audio;
 /// </summary>
 public class MusicGroup : MonoBehaviour
 {
+    // temporary reference
+    public class Note
+    {
+        public float startTime;
+        public float endTime;
+
+        public float height;
+    }
+
     public enum FlipModifier
     {
         NORMAL = 0,
@@ -19,7 +28,7 @@ public class MusicGroup : MonoBehaviour
     }
 
     // master mixer group (e.g. Default > Master)
-    public UnityEngine.Audio.AudioMixerGroup masterMixerGroup;
+    public AudioMixerGroup masterMixerGroup;
 
     // beats per minute
     public float tempo = 60.0f;
@@ -29,7 +38,20 @@ public class MusicGroup : MonoBehaviour
     public AudioClip hFlipSource;
     public AudioClip vHFlipSource;
 
+    public TextAsset normalMusicXML;
+
     private readonly List<MusicConsumer> consumers = new List<MusicConsumer>();
+
+    public Note[] GetAllNotes()
+    {
+        List<Note> allNotes = new List<Note>();
+        foreach (MusicConsumer consumer in consumers)
+        {
+            allNotes.AddRange(consumer.GetNotes());
+        }
+
+        return allNotes.ToArray();
+    }
 
     public AudioMixerGroup GetMixerGroup(int keyShift)
     {
@@ -48,7 +70,7 @@ public class MusicGroup : MonoBehaviour
 
     public AudioClip GetMusicSource(FlipModifier modifier)
     {
-        switch(modifier)
+        switch (modifier)
         {
             case FlipModifier.NORMAL:
                 return normalSource;
@@ -107,6 +129,6 @@ public class MusicGroup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
