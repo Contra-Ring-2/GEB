@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class MusicPanel : MonoBehaviour
 {
-	public GameObject[] musicObjects;
-	public float tempo;
+/*
+	private List<Ring> rings = new List<Ring>;
+	
 
-	private void playAll()
+	private void OnTriggerEnter(Collider other)
 	{
-		foreach(GameObject musicObject in musicObjects){
-			play(musicObject);
+		MusicConsumer mc = other.GetComponent<MusicConsumer>();
+		if (mc != null){
+			mc.isEnabled = true;
+		}
+
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		MusicConsumer mc = other.GetComponent<MusicConsumer>();
+		if (mc != null)
+		{
+			mc.isEnabled = false;
 		}
 	}
 
-	private void play(GameObject player)
+	private void StartExhibition(GameObject player) // 請開始表演
 	{
-		/*
-		MainModel.theModel.startAfter(
-			1.2f,
-			() => {
-				
-			}
-		);
-		*/
-	}
 
+		rings = GetRings();
+		foreach(RingControl ring in rings){
+			ring.Play();
+		}
+		GetComponent<MusicGroup>().Play();
+
+	}
+*/
 }
 
