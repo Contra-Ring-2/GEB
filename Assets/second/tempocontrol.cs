@@ -33,19 +33,19 @@ public class tempocontrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time < temple && onlight == false)
-        {
-            onlight = true;
-            nowcube = cubelist[gamelist[nowidx]];
-            nowcube.GetComponent<Renderer>().material = matlist[gamelist[nowidx]];
-        }
-        else if(time >= temple)
-        {
-            time =0;
-            nowidx++;
-            nowcube.GetComponent<Renderer>().material = basicmat;
-            onlight = false;
-        }
-        time += Time.deltaTime*3;
+        //if (time < temple && onlight == false)
+        //{
+        //    onlight = true;
+        //    nowcube = cubelist[gamelist[nowidx]];
+        //    nowcube.GetComponent<Renderer>().material = matlist[gamelist[nowidx]];
+        //}
+        //else if(time >= temple)
+        //{
+        //    time =0;
+        //    nowidx++;
+        //    nowcube.GetComponent<Renderer>().material = basicmat;
+        //    onlight = false;
+        //}
+        //time += Time.deltaTime*3;
     }
 }
