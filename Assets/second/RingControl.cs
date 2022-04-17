@@ -9,20 +9,15 @@ public class RingControl : MonoBehaviour
     public GameObject[] arcs;
     public int time = 1;
 
+    // Note -> MusicGroup.Note
 
-    public class Note
-    {
-        public float start_time;
-        public float end_time;
-        public float hieght; // radius
-    }
     // Start is called before the first frame update
     private GameObject newArc;
     void Start()
     {
     }
 
-    public void CreateRing(Note[] notes,float spc,float hieght_range)
+    public void CreateRing(MusicGroup.Note[] notes,float spc,float hieght_range)
     {
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)

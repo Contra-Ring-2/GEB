@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable
+
 public class rotate_box : MonoBehaviour
 {
     // Start is called before the first frame update

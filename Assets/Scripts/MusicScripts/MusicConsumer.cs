@@ -122,7 +122,7 @@ public class MusicConsumer : MonoBehaviour
                     float startTime = sumTime;
                     float endTime = startTime + duration;
 
-                    notes.Add(new MusicGroup.Note { startTime = startTime, endTime = endTime, height = height });
+                    notes.Add(new MusicGroup.Note { start_time = startTime, end_time = endTime, hieght = height });
                 }
             }
         }

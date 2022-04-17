@@ -10,13 +10,14 @@ using UnityEngine.Audio;
 /// </summary>
 public class MusicGroup : MonoBehaviour
 {
-    // temporary reference
+    // RingControl
     public class Note
     {
-        public float startTime;
-        public float endTime;
+        public float start_time;
+        public float end_time;
 
-        public float height;
+        // moechine said she spell this intentionally :)
+        public float hieght; // radius
     }
 
     public enum FlipModifier
