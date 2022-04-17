@@ -907,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974975298197135203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 1.51, z: -0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4974975298619995842}
@@ -940,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974975298291208155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.1, y: 0, z: 0}
+  m_LocalPosition: {x: 100, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4974975297139841698}
@@ -1144,7 +1144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974975298619995842}
-  - component: {fileID: 4974975298619995843}
+  - component: {fileID: 3010179485456407996}
   m_Layer: 0
   m_Name: LinkingManager
   m_TagString: Untagged
@@ -1166,7 +1166,7 @@ Transform:
   m_Father: {fileID: 4974975298197135202}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4974975298619995843
+--- !u!114 &3010179485456407996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1175,13 +1175,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4974975298619995844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7346c237102ff4d986e98f47dea1fb, type: 3}
+  m_Script: {fileID: 11500000, guid: beecbef8fb457164387a4f2fd8451242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraA: {fileID: 4974975298328532617}
   cameraB: {fileID: 4974975297139841696}
-  cameraMatA: {fileID: 2100000, guid: 37499d2f78d22ef488e03d134d183942, type: 2}
-  cameraMatB: {fileID: 2100000, guid: 4ce790233eb679243a9ed9198c4b422a, type: 2}
+  cameraMatA: {fileID: 0}
+  cameraMatB: {fileID: 0}
   renderPlaneA: {fileID: 4974975297431234873}
   renderPlaneB: {fileID: 4974975297938659553}
 --- !u!1 &4974975298659060253
@@ -1399,7 +1399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974975298856020604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4974975298328532619}
