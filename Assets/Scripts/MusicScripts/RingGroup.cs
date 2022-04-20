@@ -10,6 +10,7 @@ using UnityEngine;
 public class RingGroup : MonoBehaviour
 {
 	private readonly List<RingControl> rings = new List<RingControl>();
+	public GameObject arc_prefab;
 
 	public void PlayAllRings()
 	{

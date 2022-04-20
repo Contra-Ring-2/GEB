@@ -7,7 +7,7 @@ using Note = MusicGroup.Note;
 
 public class RingControl : MonoBehaviour
 {
-    public GameObject arc_prefab;
+    private GameObject arc_prefab;
     public float _circle_time = 6; //material's cycle time
     public GameObject[] arcs;
 
@@ -24,6 +24,7 @@ public class RingControl : MonoBehaviour
         Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
 
         ringGroup.AddControl(this);
+        arc_prefab = ringGroup.arc_prefab;
     }
 
     public void CreateRing(Note[] notes,float spc,float hieght_range)
