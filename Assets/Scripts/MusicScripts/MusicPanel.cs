@@ -15,6 +15,10 @@ public class MusicPanel : MonoBehaviour
 			mc.isEnabled = true;
 		}
 
+		if (other.tag == "Player")
+        {
+			StartExhibition();
+        }
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -26,11 +30,12 @@ public class MusicPanel : MonoBehaviour
 		}
 	}
 
-	private void StartExhibition(GameObject player) // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
+	private void StartExhibition() // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
 	{
-		foreach(RingControl ring in rings){
-			ring.Play();
-		}
+		MusicGroup musicGroup = GetComponent<MusicGroup>();
+		RingGroup ringGroup = GetComponent<RingGroup>();
+
+		ringGroup.PlayAllRings(musicGroup.tempo);
 
 		GetComponent<MusicGroup>().PlayAllMusic();
 
@@ -48,6 +53,11 @@ public class MusicPanel : MonoBehaviour
 			UpdateExhibition
 		);
 	}
+
+    private void Start()
+    {
+		
+    }
 
 }
 

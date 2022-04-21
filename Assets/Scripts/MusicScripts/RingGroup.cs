@@ -12,11 +12,11 @@ public class RingGroup : MonoBehaviour
 	private readonly List<RingControl> rings = new List<RingControl>();
 	public GameObject arc_prefab;
 
-	public void PlayAllRings()
+	public void PlayAllRings(float tempo)
 	{
 		foreach (RingControl ring in rings)
 		{
-			ring.Play();
+			ring.Play(tempo);
 		}
 	}
 

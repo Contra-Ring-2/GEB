@@ -23,6 +23,8 @@ public class RingControl : MonoBehaviour
         ringGroup = transform.parent.GetComponent<RingGroup>();
         Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
 
+        Debug.Assert(GetComponent<MusicConsumer>() != null, "RingControl needs a MusicConsumer");
+
         ringGroup.AddControl(this);
         arc_prefab = ringGroup.arc_prefab;
     }
@@ -48,18 +50,26 @@ public class RingControl : MonoBehaviour
             mat_newarc.SetFloat("Angle_ ", interval * _circle_time);
             newarc.GetComponent<Renderer>().material = mat_newarc;
             arcs[i] = newarc;
+
+            // Debug:
+            {
+                newarc.transform.Translate(new Vector3(0, 0, 3));
+            }
         }
 
     }
 
-
-    public void Play()
+    // TODO: beats per measure (time signature)
+    public void Play(float tempo)
     {
-
+        Note[] notes = GetComponent<MusicConsumer>().GetNotes();
+        CreateRing(notes, (60 / tempo) * 8, 50);
     }
 
     public void UpdateNotes(float time, float spc)
     {
+        //Debug.Log("Updating");
+
         Color _color1 = arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
         Color _color2 = _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
@@ -74,11 +84,17 @@ public class RingControl : MonoBehaviour
             }
             if(local_notes[i].start_time <time-spc/2 && local_notes[i].end_time > time - spc / 2)
             {
+                // Debug:
+                Debug.Log("Fading in: " + local_notes[i]);
+
                 float _p = ((time - spc / 2) - local_notes[i].start_time) / (local_notes[i].end_time - local_notes[i].start_time);
                 arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
             }
             if (local_notes[i].start_time < time + spc / 2 && local_notes[i].end_time > time + spc / 2)
             {
+                // Debug:
+                Debug.Log("Fading out: " + local_notes[i]);
+
                 float _p = (local_notes[i].end_time - (time + spc / 2)) / (local_notes[i].end_time - local_notes[i].start_time);
                 arcs[i].GetComponent<Renderer>().material.SetFloat("Alpha_", _p);
             }
