@@ -44,10 +44,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Alpha_: 1.15
+    - Alpha_: 1.06
     - Angle_: 0.23
     m_Colors:
-    - Color_: {r: 0, g: 2, b: 2, a: 0.827451}
+    - Color_: {r: 0, g: 5.992157, b: 5.772549, a: 1}
     - Color_201006bacd3540bea31795a5e3e1cc9d: {r: 0.6085911, g: 49.295876, b: 0, a: 1}
-    - EmissionColor_: {r: 0.53588676, g: 0.37876815, b: 0, a: 0.8352941}
+    - EmissionColor_: {r: 0, g: 0.70710677, b: 0.10814574, a: 0.8352941}
   m_BuildTextureStacks: []
