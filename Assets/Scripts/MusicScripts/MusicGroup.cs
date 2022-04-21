@@ -18,6 +18,17 @@ public class MusicGroup : MonoBehaviour
 
         // moechine said she spell this intentionally :)
         public float hieght; // radius
+
+        public override string ToString()
+        {
+            //return base.ToString();
+            return string.Format(
+                    "Note[start: {0}, end: {1}, hieght: {2}]",
+                    start_time,
+                    end_time,
+                    hieght
+                );
+        }
     }
 
     public enum FlipModifier
@@ -92,6 +103,12 @@ public class MusicGroup : MonoBehaviour
 
     public void PlayAllMusic()
     {
+        //Debug.Log("All scores : " + GetAllNotes());
+        //foreach (Note note in GetAllNotes())
+        //{
+        //    Debug.Log("scores: " + string.Join(",", note));
+        //}
+
         foreach (MusicConsumer consumer in consumers)
         {
             consumer.PlayMusic();
