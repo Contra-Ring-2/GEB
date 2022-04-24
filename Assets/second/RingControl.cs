@@ -32,9 +32,19 @@ public class RingControl : MonoBehaviour
         arc_prefab = ringGroup.arc_prefab;
     }
 
-    public void CreateRing(Note[] notes,float spc,float hieght_range)
+    public void CreateRing(Note[] notes,float spc)
     {
         local_notes = notes;
+
+        // analyze height of notes
+        float heightMin = 1e20f, heightMax = -1e20f;
+        foreach (Note note in notes)
+        {
+            heightMin = Math.Min(heightMin, note.hieght);
+            heightMax = Math.Max(heightMax, note.hieght);
+        }
+
+        float heightRange = heightMax - heightMin;
 
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
@@ -49,10 +59,17 @@ public class RingControl : MonoBehaviour
             //int shaderAlphaID = Shader.PropertyToID("Alpha_");
 
             mat_newarc.SetFloat("Alpha_", 0);
-            
+
             //mat_newarc.SetFloat("Scale_", 1 + (notes[i].hieght / hieght_range));
-            float scaleFac = 2 * (notes[i].hieght / hieght_range); // 1 + (notes[i].hieght / hieght_range);
-            newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
+
+            {
+                //const float ratio = (float)(2 / (2 - 0.2));
+                float ratio = (float) Math.Pow(3, 1 / heightRange);
+
+                //float scaleFac = 2 * (notes[i].hieght); // 1 + (notes[i].hieght / hieght_range);
+                float scaleFac = (float) Math.Pow(ratio, notes[i].hieght - heightMin);
+                newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
+            }
 
             //mat_newarc.SetFloat("Angle_", interval * _circle_time);
             mat_newarc.SetFloat("Angle_", interval);
@@ -75,7 +92,7 @@ public class RingControl : MonoBehaviour
     public void Play(float tempo, int partIdx)
     {
         Note[] notes = GetComponent<MusicConsumer>().GetNotes(partIdx);
-        CreateRing(notes, (60 / tempo) * 8, 50);
+        CreateRing(notes, (60 / tempo) * 8); //, 50);
     }
 
     public void UpdateNotes(float time, float spc)
