@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: circleMaterial 5
-  m_Shader: {fileID: -6465566751694194690, guid: ec20a23645e2c1441b4bc965a7ad6008,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ec20a23645e2c1441b4bc965a7ad6008, type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -45,6 +44,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture_:
         m_Texture: {fileID: 2800000, guid: 85352e801868adf4a97057403c9304ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture_Circle_:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -132,9 +135,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Alpha_: 1
     - Angle: 0.28
     - Angle_: 0.3
     - Radius_: 0
+    - Radius_inner_: 1
+    - Radius_outer_: 0
     - RotateSpeed_: -3
     - StartTime: 3
     - StartTime_: 0
@@ -281,3 +287,4 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
