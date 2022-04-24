@@ -11,7 +11,7 @@ public class RingControl : MonoBehaviour
     public Color ringColor;
 
     private GameObject arc_prefab;
-    public float _circle_time = 6; //material's cycle time
+    public float _circle_time = 1; //6; //material's cycle time
     public GameObject[] arcs;
 
     private RingGroup ringGroup;
@@ -44,7 +44,7 @@ public class RingControl : MonoBehaviour
 
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
-            float _time = (interval / 2f) + (notes[i].start_time) * (_circle_time / spc);
+            //float _time = (interval / 2f) + (notes[i].start_time); // * (_circle_time / spc);
 
             //int shaderAlphaID = Shader.PropertyToID("Alpha_");
 
@@ -56,10 +56,15 @@ public class RingControl : MonoBehaviour
             //scale_change
             //mat_newarc.SetFloat("Scale_", 1 + (notes[i].hieght / hieght_range));
 
-            float scaleFac = 1 + (notes[i].hieght / hieght_range);
+            float scaleFac = 2 * (notes[i].hieght / hieght_range); // 1 + (notes[i].hieght / hieght_range);
             newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
 
-            mat_newarc.SetFloat("Angle_", interval * _circle_time);
+            // Debug:
+            //mat_newarc.SetFloat("Angle_", 0.3f);
+            mat_newarc.SetFloat("Angle_", interval);
+            Debug.Log("Created ring with angle: " + interval);
+
+            //mat_newarc.SetFloat("Angle_", interval * _circle_time);
 
             if (ringColor == null)
             {
@@ -81,9 +86,9 @@ public class RingControl : MonoBehaviour
     }
 
     // TODO: beats per measure (time signature)
-    public void Play(float tempo)
+    public void Play(float tempo, int partIdx)
     {
-        Note[] notes = GetComponent<MusicConsumer>().GetNotes();
+        Note[] notes = GetComponent<MusicConsumer>().GetNotes(partIdx);
         CreateRing(notes, (60 / tempo) * 8, 50);
     }
 
@@ -139,7 +144,7 @@ public class RingControl : MonoBehaviour
         //}
 
         Color _color1 = ringColor; // arcs[0].GetComponent<Renderer>().material.GetColor("Color_"); // arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
-        Color _color2 = _color1 * 1.2f;
+        Color _color2 = Color.white; // _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
         {
             // Debug:
@@ -159,6 +164,12 @@ public class RingControl : MonoBehaviour
             {
                 //arcs[i].GetComponent<Renderer>().material.color = _color2;
                 arcs[i].GetComponent<Renderer>().material.SetColor("Color_", _color2);
+
+                // Debug:
+                if (local_notes[i].start_time >= time - Time.deltaTime)
+                {
+                    Debug.Log("Playing: " + local_notes[i]);
+                }
             }
             else
             {
@@ -197,7 +208,7 @@ public class RingControl : MonoBehaviour
 
             arcs[i].GetComponent<Renderer>().material.SetFloat(
                 "Theta_",
-                (float)(6.28 * ((time + local_notes[i].start_time) % spc / spc))
+                (float)(6.28 * ((time - local_notes[i].start_time) % spc / spc))
             );
         }
     }

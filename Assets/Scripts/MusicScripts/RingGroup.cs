@@ -14,9 +14,10 @@ public class RingGroup : MonoBehaviour
 
 	public void PlayAllRings(float tempo)
 	{
-		foreach (RingControl ring in rings)
+		for (int i = 0; i < rings.Count; i++)
 		{
-			ring.Play(tempo);
+			RingControl ring = rings[i];
+			ring.Play(tempo, i);
 		}
 	}
 

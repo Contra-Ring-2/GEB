@@ -64,7 +64,7 @@ public class MusicConsumer : MonoBehaviour
         GetComponent<AudioSource>().Stop();
     }
 
-    public MusicGroup.Note[] GetNotes()
+    public MusicGroup.Note[] GetNotes(int partIdx)
     {
         List<MusicGroup.Note> notes = new List<MusicGroup.Note>();
 
@@ -149,12 +149,17 @@ public class MusicConsumer : MonoBehaviour
         keyValue.Add("B", 6.0f);
 
         //List<MusicGroup.Note> notes = new List<MusicGroup.Note>();
+
+        float secPerBeat = 60 / musicGroup.tempo;
+        float waitSec = secPerBeat * waitBeats;
+
         foreach (XmlNode part in parts)
         {
-            float waitSec = (60 / musicGroup.tempo) * waitBeats;
+            float division = 1.0f;
 
-            // TODO: parse these
+            // TODO: parse/calculate these
             float beatPerMeasure = 4.0f;
+            float partBaseHieght = 8.0f * partIdx;
 
             {
                 float measureOffset = 0.0f;
@@ -162,7 +167,7 @@ public class MusicConsumer : MonoBehaviour
                 {
                     Debug.Assert(measure.SelectSingleNode("backup") == null, string.Format("{0} contains 'backup'", measure.InnerXml));
 
-                    float division = 1.0f;
+                    //float division = 1.0f;
 
                     XmlNode attribute = measure.SelectSingleNode("attributes");
                     if (attribute != null)
@@ -193,15 +198,19 @@ public class MusicConsumer : MonoBehaviour
                             string step = pitch.SelectSingleNode("step").InnerText;
                             float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
 
-                            float noteStart = waitSec + measureOffset + noteOffset;
-                            float pitchValue = keyShift + (1.0f + keyValue[step] + octave*7.0f);
+                            float noteStart = measureOffset + noteOffset;
+                            float pitchValue = keyValue[step] + octave*7.0f;
                             float noteLength = duration / division;
+
+                            float noteStartSec = waitSec + secPerBeat * noteStart;
+                            float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
+                            float noteLengthSec = secPerBeat * noteLength;
 
                             MusicGroup.Note note1 = new MusicGroup.Note
                             {
-                                start_time = noteStart,
-                                end_time   = noteStart + noteLength,
-                                hieght     = pitchValue
+                                start_time = noteStartSec,
+                                end_time   = noteStartSec + noteLengthSec,
+                                hieght     = pitchHeight
                             };
 
                             notes.Add(note1);

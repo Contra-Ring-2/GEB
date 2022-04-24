@@ -57,9 +57,10 @@ public class MusicGroup : MonoBehaviour
     public Note[] GetAllNotes()
     {
         List<Note> allNotes = new List<Note>();
-        foreach (MusicConsumer consumer in consumers)
+        for (int i = 0; i < consumers.Count; i++)
         {
-            allNotes.AddRange(consumer.GetNotes());
+            MusicConsumer consumer = consumers[i];
+            allNotes.AddRange(consumer.GetNotes(i));
         }
 
         return allNotes.ToArray();
