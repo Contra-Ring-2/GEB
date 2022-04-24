@@ -1521,6 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ringColor: {r: 0.99001515, g: 1, b: 0, a: 0}
   _circle_time: 6
   arcs: []
 --- !u!114 &1064183686
@@ -2964,6 +2965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ringColor: {r: 1, g: 0, b: 0, a: 0}
   _circle_time: 6
   arcs: []
 --- !u!114 &1803413882
@@ -3415,6 +3417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ringColor: {r: 1, g: 0.6293502, b: 0, a: 0}
   _circle_time: 6
   arcs: []
 --- !u!114 &1938182556
@@ -3543,6 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ringColor: {r: 0.04791355, g: 1, b: 0, a: 0}
   _circle_time: 6
   arcs: []
 --- !u!114 &1956473535

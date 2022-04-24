@@ -8,6 +8,8 @@ using Note = MusicGroup.Note;
 
 public class RingControl : MonoBehaviour
 {
+    public Color ringColor;
+
     private GameObject arc_prefab;
     public float _circle_time = 6; //material's cycle time
     public GameObject[] arcs;
@@ -58,6 +60,15 @@ public class RingControl : MonoBehaviour
             newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
 
             mat_newarc.SetFloat("Angle_", interval * _circle_time);
+
+            if (ringColor == null)
+            {
+                Color color = arcs[0].GetComponent<Renderer>().material.GetColor("Color_");
+                
+                Debug.LogWarning(string.Format("{0}: ringColor is null, default to prefab color = {1}.", this, color));
+                ringColor = color;
+            }
+
             newarc.GetComponent<Renderer>().material = mat_newarc;
             arcs[i] = newarc;
 
@@ -127,7 +138,7 @@ public class RingControl : MonoBehaviour
         //    return;
         //}
 
-        Color _color1 = arcs[0].GetComponent<Renderer>().material.GetColor("Color_"); // arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
+        Color _color1 = ringColor; // arcs[0].GetComponent<Renderer>().material.GetColor("Color_"); // arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
         Color _color2 = _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
         {
@@ -182,9 +193,9 @@ public class RingControl : MonoBehaviour
                 arcs[i].SetActive(false);
             }
 
-                //Debug.Log(string.Format("Range ({0}, {1}): {2}, {3}, {4}", local_notes[i].start_time, local_notes[i].end_time, time - spc / 2, time, time + spc / 2));
+            //Debug.Log(string.Format("Range ({0}, {1}): {2}, {3}, {4}", local_notes[i].start_time, local_notes[i].end_time, time - spc / 2, time, time + spc / 2));
 
-                arcs[i].GetComponent<Renderer>().material.SetFloat(
+            arcs[i].GetComponent<Renderer>().material.SetFloat(
                 "Theta_",
                 (float)(6.28 * ((time + local_notes[i].start_time) % spc / spc))
             );
