@@ -35,16 +35,22 @@ public class MusicPanel : MonoBehaviour
 		MusicGroup musicGroup = GetComponent<MusicGroup>();
 		RingGroup ringGroup = GetComponent<RingGroup>();
 
-		ringGroup.PlayAllRings(musicGroup.tempo);
+        ringGroup.PlayAllRings(musicGroup.tempo);
 
-		GetComponent<MusicGroup>().PlayAllMusic();
+		//GetComponent<MusicGroup>().PlayAllMusic();
+
+		// TODO:
+		MasterModel.TheModel.CallbackInSecond(
+			4 * (60 / GetComponent<MusicGroup>().tempo),
+			() => { GetComponent<MusicGroup>().PlayAllMusic(); }
+		);
 
 		float startTime = Time.time;
 		float spc = 8 * (60 / GetComponent<MusicGroup>().tempo); // is this 8?
 
 		void UpdateExhibition()
         {
-			GetComponent<RingGroup>().UpdateAllRingNotes(startTime, spc);
+			GetComponent<RingGroup>().UpdateAllRingNotes(Time.time - startTime, spc);
 			MasterModel.TheModel.CallbackWaitingFor(new WaitForFixedUpdate(), UpdateExhibition);
 		}
 

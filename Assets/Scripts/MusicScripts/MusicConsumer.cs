@@ -116,10 +116,10 @@ public class MusicConsumer : MonoBehaviour
 
             //List<MusicGroup.Note> notes = new List<MusicGroup.Note>();
             {
-                float sumTime = 0;
+                float sumTime = (60 / musicGroup.tempo) * waitBeats; // 0;
                 for (int i = 0; i < tigerNotes.Length; i += 2)
                 {
-                    float height = tigerNotes[i];
+                    float height = tigerNotes[i] + keyShift;
                     float duration = tigerNotes[i + 1];
 
                     float startTime = sumTime;
@@ -151,6 +151,8 @@ public class MusicConsumer : MonoBehaviour
         //List<MusicGroup.Note> notes = new List<MusicGroup.Note>();
         foreach (XmlNode part in parts)
         {
+            float waitSec = (60 / musicGroup.tempo) * waitBeats;
+
             // TODO: parse these
             float beatPerMeasure = 4.0f;
 
@@ -191,8 +193,8 @@ public class MusicConsumer : MonoBehaviour
                             string step = pitch.SelectSingleNode("step").InnerText;
                             float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
 
-                            float noteStart = measureOffset + noteOffset;
-                            float pitchValue = 1.0f + keyValue[step] + octave*7.0f;
+                            float noteStart = waitSec + measureOffset + noteOffset;
+                            float pitchValue = keyShift + (1.0f + keyValue[step] + octave*7.0f);
                             float noteLength = duration / division;
 
                             MusicGroup.Note note1 = new MusicGroup.Note

@@ -2012,7 +2012,6 @@ GameObject:
   - component: {fileID: 1316155506}
   - component: {fileID: 1316155505}
   - component: {fileID: 1316155504}
-  - component: {fileID: 1316155503}
   - component: {fileID: 1316155502}
   m_Layer: 0
   m_Name: MusicBench_2T
@@ -2052,18 +2051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
---- !u!114 &1316155503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316155500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119b17ecf6b7ac94c8efcf97aec72a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1316155504
 MonoBehaviour:
   m_ObjectHideFlags: 0
