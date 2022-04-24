@@ -9,6 +9,8 @@ using Note = MusicGroup.Note;
 public class RingControl : MonoBehaviour
 {
     public Color ringColor;
+    //public float scaleMax = 2.2f;
+    //public float scaleMin = 0.3f;
 
     private GameObject arc_prefab;
     //public const float _circle_time = 1; //6; //material's cycle time
@@ -64,10 +66,12 @@ public class RingControl : MonoBehaviour
 
             {
                 //const float ratio = (float)(2 / (2 - 0.2));
-                float ratio = (float) Math.Pow(3, 1 / heightRange);
+                //float rateMax = 2.2f, rateMin = 0.3f;
+                float scaleMax = ringGroup.scaleMax, scaleMin = ringGroup.scaleMin;
+                float ratio = (float) Math.Pow(scaleMax / scaleMin, 1 / heightRange);
 
                 //float scaleFac = 2 * (notes[i].hieght); // 1 + (notes[i].hieght / hieght_range);
-                float scaleFac = (float) Math.Pow(ratio, notes[i].hieght - heightMin);
+                float scaleFac = (float) (scaleMin * Math.Pow(ratio, notes[i].hieght - heightMin));
                 newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
             }
 

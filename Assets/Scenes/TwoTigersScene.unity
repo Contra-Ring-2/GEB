@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44308865, g: 0.48561585, b: 0.535985, a: 1}
+  m_IndirectSpecularColor: {r: 0.45071465, g: 0.49880975, b: 0.56492376, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1521,8 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.99001515, g: 1, b: 0, a: 0}
-  _circle_time: 6
+  ringColor: {r: 1, g: 0.6997869, b: 0, a: 0}
   arcs: []
 --- !u!114 &1064183686
 MonoBehaviour:
@@ -2965,8 +2964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 1, g: 0, b: 0, a: 0}
-  _circle_time: 6
+  ringColor: {r: 1, g: 0, b: 0.3154111, a: 0}
   arcs: []
 --- !u!114 &1803413882
 MonoBehaviour:
@@ -3417,8 +3415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 1, g: 0.6293502, b: 0, a: 0}
-  _circle_time: 6
+  ringColor: {r: 1, g: 0.51431257, b: 0, a: 0}
   arcs: []
 --- !u!114 &1938182556
 MonoBehaviour:
@@ -3546,8 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.04791355, g: 1, b: 0, a: 0}
-  _circle_time: 6
+  ringColor: {r: 1, g: 0.8532487, b: 0, a: 0}
   arcs: []
 --- !u!114 &1956473535
 MonoBehaviour:
