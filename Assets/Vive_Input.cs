@@ -9,7 +9,8 @@ public class Vive_Input : MonoBehaviour
     public float m_MaxSpeed = 1.0f;
 
     //public SteamVR_Action_Boolean m_MovePress = null;
-    public SteamVR_Action_Vector2 m_MoveValue = null;
+    public SteamVR_Action_Vector2 m_MoveValueLeft = null;
+    public SteamVR_Action_Vector2 m_MoveValueRight = null;
     private float m_Speed = 0.0f;
     // private CharacterController m_CharacterController = null;
 
@@ -45,25 +46,35 @@ public class Vive_Input : MonoBehaviour
         m_CameraRig.rotation = oldRotation;
     }
     private void CalculateMovement(){
-        Vector3 oldPosition = m_CameraRig.position;
-        Quaternion oldRotation = m_CameraRig.rotation;
+        // Vector3 oldPosition = m_CameraRig.position;
+        // Quaternion oldRotation = m_CameraRig.rotation;
 
         // transform.eulerAngles = new Vector3(0.0f,m_Head.rotation.eulerAngles.y,0.0f);
-        Vector2 axis = m_MoveValue.axis;
-        Vector3 front = new Vector3(axis[0], 0, axis[1]);
+        Vector2 axis = m_MoveValueLeft.axis;
+        Vector3 front = (new Vector3(axis[0], 0, axis[1]));
         
-        Transform camFront = Instantiate(m_CameraRig);
-        camFront.Translate(front);
+        // Vector3 camFront = m_CameraRig.rotation * front;
+        Vector3 camFront = GameObject.FindWithTag("MainCamera").transform.rotation * front;
+        Vector3 flatNorm = (new Vector3(camFront.x, 0, camFront.z)).normalized;
+        Vector3 flatTrans = flatNorm * (5.0f * Time.deltaTime);
 
         // Vector3 dpos = camFront.position - m_CameraRig.position;
         // GameObject.FindWithTag("")
+
+        // GameObject.FindWithTag("Player").transform.Translate(front);
+        // GameObject.FindWithTag("Player").transform.Translate(flatTrans);
+        
+        // TODO:
+        GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity = flatNorm * 5.0f; //flatTrans;
+
+        // Debug.Log("Camera rotaion: " + m_CameraRig.rotation);
 
         // front.
 
         // Debug.Log(front)
 
-        m_CameraRig.position = oldPosition;
-        m_CameraRig.rotation = oldRotation;
+        // m_CameraRig.position = oldPosition;
+        // m_CameraRig.rotation = oldRotation;
     }
     private void HandleHeight(){
 

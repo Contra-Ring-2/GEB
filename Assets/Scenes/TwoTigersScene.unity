@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 222818295}
   - component: {fileID: 222818297}
   - component: {fileID: 222818296}
+  - component: {fileID: 222818298}
   m_Layer: 0
   m_Name: Player_Camera
   m_TagString: MainCamera
@@ -541,6 +542,39 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &222818298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222818294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &237972434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_TagString
@@ -1317,6 +1351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal_Pair_CurFuture
       objectReference: {fileID: 0}
+    - target: {fileID: 4974975298197135203, guid: 0cb2678b611eb584d9bfba4d8392becd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4974975298291208154, guid: 0cb2678b611eb584d9bfba4d8392becd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 150
@@ -2051,6 +2089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
+  scaleMax: 2.2
+  scaleMin: 0.3
 --- !u!114 &1316155504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3045,6 +3085,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803413879}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1806334877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4974975297139841699, guid: 0cb2678b611eb584d9bfba4d8392becd, type: 3}
+  m_PrefabInstance: {fileID: 1736188311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1806334881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806334877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1826468312
 GameObject:
   m_ObjectHideFlags: 0
