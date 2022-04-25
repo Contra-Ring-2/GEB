@@ -13,6 +13,7 @@ public class PortalTeleporter : MonoBehaviour {
 
 	private void Start()
 	{
+		player = GameObject.FindGameObjectWithTag("Player");
 		player_transform = player.transform;
 	}
 

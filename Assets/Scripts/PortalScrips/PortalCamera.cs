@@ -8,6 +8,11 @@ public class PortalCamera : MonoBehaviour {
 	public Transform portal;
 	public Transform otherPortal;
 
+	private void Start()
+	{
+		playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		Vector3 playerOffsetFromPortal = playerCamera.position - otherPortal.position;
