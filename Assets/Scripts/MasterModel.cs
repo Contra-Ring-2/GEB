@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 public class MasterModel : MonoBehaviour
 {
@@ -52,6 +53,9 @@ public class MasterModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // allow cross scene references
+        EditorSceneManager.preventCrossSceneReferences = true;
+
         Debug.Assert(TheModel == null);
         TheModel = this;
     }
