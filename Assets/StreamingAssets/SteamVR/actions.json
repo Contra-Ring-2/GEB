@@ -50,6 +50,11 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/touchpadposition",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -333,6 +338,10 @@
     {
       "name": "/actions/htc_viu",
       "usage": "leftright"
+    },
+    {
+      "name": "/actions/NewSet",
+      "usage": "single"
     }
   ],
   "default_bindings": [
@@ -452,7 +461,6 @@
       "/actions/htc_viu/in/viu_press_05": "Press05 (DPadRight)",
       "/actions/htc_viu/in/viu_press_06": "Press06 (DPadDown)",
       "/actions/htc_viu/in/viu_press_07": "Press07 (A)",
-      "/actions/htc_viu/in/viu_press_36": "Press08 (Joystick)",
       "/actions/htc_viu/in/viu_press_31": "Press31 (ProximitySensor)",
       "/actions/htc_viu/in/viu_press_32": "Press32 (Touchpad)",
       "/actions/htc_viu/in/viu_press_33": "Press33 (Trigger)",
@@ -466,7 +474,6 @@
       "/actions/htc_viu/in/viu_touch_05": "Touch05 (DPadRight)",
       "/actions/htc_viu/in/viu_touch_06": "Touch06 (DPadDown)",
       "/actions/htc_viu/in/viu_touch_07": "Touch07 (A)",
-      "/actions/htc_viu/in/viu_touch_36": "Touch08 (Joystick)",
       "/actions/htc_viu/in/viu_touch_31": "Touch31 (ProximitySensor)",
       "/actions/htc_viu/in/viu_touch_32": "Touch32 (Touchpad)",
       "/actions/htc_viu/in/viu_touch_33": "Touch33 (Trigger)",
