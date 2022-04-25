@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TwoTigersScene.unity
+    guid: 6b8137a6449effd429a85088653537f5
+  - enabled: 1
+    path: Assets/Scenes/ModelScene.unity
+    guid: 6eef64c6aa57b9840a0c2d2b2e2872e1
+  - enabled: 1
+    path: Assets/second/second.unity
+    guid: 1074af7e72d31584fb6e50b75c1bb225
+  - enabled: 1
+    path: Assets/Picture gallery - showroom/scenes/gallery.unity
+    guid: 496db855fa31439438a789e4932ea6cd
   m_configObjects: {}
