@@ -20,7 +20,7 @@ public class PortalTeleporter : MonoBehaviour {
 	{
 		if (setActiveNextTick)
 		{
-			player.SetActive(true);
+			player.GetComponent<CharacterController>().enabled = true;
 			setActiveNextTick = false;
 		}
 
@@ -39,7 +39,7 @@ public class PortalTeleporter : MonoBehaviour {
 				player_transform.Rotate(Vector3.up, rotationDiff);
 				Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
 
-				player.SetActive(false);
+				player.GetComponent<CharacterController>().enabled = false;
 				setActiveNextTick = true;
 				player_transform.position = receiver.position + positionOffset;
 
@@ -55,7 +55,6 @@ public class PortalTeleporter : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			playerIsOverlapping = true;
-			Debug.Log("Overlapping Start");
 		}
 	}
 
@@ -64,7 +63,6 @@ public class PortalTeleporter : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			playerIsOverlapping = false;
-			Debug.Log("Overlapping End");
 		}
 	}
 
