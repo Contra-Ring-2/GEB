@@ -5,14 +5,6 @@ using TMPro;
 
 public class dialogue : MonoBehaviour
 {
-<<<<<<< HEAD
-    public TextMeshProUGUI textcomponent;
-    public GameObject but;
-    public string[] lines;
-    public float textspeed;
-
-    private int index;
-=======
     public TextMeshProUGUI[] textcomponent;
     public TextMeshProUGUI buttontext;
     public GameObject but;
@@ -26,17 +18,10 @@ public class dialogue : MonoBehaviour
     public int paralinelen = 0; //now paragraph length
     public int paraidx = 0; //now paragraph line idx
     private int buttonidx = 0;
->>>>>>> 8caa226 (dialogue)
 
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-        textcomponent.text = string.Empty; //initialize as empty string
-        string path = Application.dataPath+ "/changescene/plot.txt"; // asset's path
-        //Debug.Log(path);
-        lines = System.IO.File.ReadAllLines(path);
-=======
         //textcomponent.text = string.Empty; //initialize as empty string
         string parapath = Application.dataPath + "/changescene/plot.txt"; // asset's path
         Debug.Log(parapath);
@@ -56,51 +41,10 @@ public class dialogue : MonoBehaviour
         buttonidx = 0;
 
         CreateLine();
->>>>>>> 8caa226 (dialogue)
         StartDialogue();
     }
     public void ClickNextDia()
     {
-<<<<<<< HEAD
-        Debug.Log("press space");
-        if (textcomponent.text == lines[index])
-        {
-            Debug.Log("pr1");
-            NextLine();
-        }
-        else
-        {
-            Debug.Log("pr2");
-            StopAllCoroutines();
-            textcomponent.text = lines[index];
-        }
-    }
-    void StartDialogue()
-    {
-        index = 0;
-        StartCoroutine(TypeLine());
-    }
-    IEnumerator TypeLine()
-    {
-        foreach(char c in lines[index].ToCharArray())
-        {
-            textcomponent.text += c;
-            yield return new WaitForSeconds(textspeed);
-        }
-    }
-    void NextLine()
-    {
-        if (index < lines.Length - 1) // small than last element
-        {
-            index++;
-            textcomponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-        else
-        {
-            gameObject.SetActive(false);
-            but.SetActive(false);
-=======
         StopAllCoroutines();
         txt_idx = 0; // change
         lines_idx = 0; //change
@@ -161,9 +105,9 @@ public class dialogue : MonoBehaviour
     }
     //void CreateLine()
     //{
-    //    lines[0] = "§A®Þ²z¤F¤U¦Û¤vªº±¡ºü¡A¨Ó¨ì¤F¤U­Ó®i¶¡";
-    //    lines[1] = "¤£¥iÁ×§Kªº¡A§A·Q¨ì¤F§Aª¨ª¨";
-    //    lines[2] = "·Q¨ì¤F¤È«á±Ð°ó¸Ì¥L¼uµ^ªº«ü¦y¡A·Q¨ì¤F®Ñ©Ð¸Ì¨ºÌî³¯ÂÂªº½Z¯È";
+    //    lines[0] = "ï¿½Aï¿½Þ²zï¿½Fï¿½Uï¿½Û¤vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Ó¨ï¿½Fï¿½Uï¿½Ó®iï¿½ï¿½";
+    //    lines[1] = "ï¿½ï¿½ï¿½iï¿½×§Kï¿½ï¿½ï¿½Aï¿½Aï¿½Qï¿½ï¿½Fï¿½Aï¿½ï¿½ï¿½ï¿½";
+    //    lines[2] = "ï¿½Qï¿½ï¿½Fï¿½È«ï¿½Ð°ï¿½Ì¥Lï¿½uï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½Aï¿½Qï¿½ï¿½Fï¿½Ñ©Ð¸Ì¨ï¿½ï¿½î³¯ï¿½Âªï¿½ï¿½Zï¿½ï¿½";
     //}
     void CreateLine()
     {
@@ -187,7 +131,6 @@ public class dialogue : MonoBehaviour
             }
             
             
->>>>>>> 8caa226 (dialogue)
         }
     }
 }
