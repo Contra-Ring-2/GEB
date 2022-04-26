@@ -28,7 +28,7 @@ public class Vive_Input : MonoBehaviour
     private void Update(){
         //Debug.Log(m_MoveValue);
         // Debug.Log(string.Format("Vector2({0})", m_MoveValueLeft.axis));
-        Debug.Log(string.Format("Vector2({0})", m_MoveValueRight.axis));
+        // Debug.Log(string.Format("Vector2({0})", m_MoveValueRight.axis));
 
         // Valve.VR.InteractionSystem.Player player = GameObject.FindWithTag("Player").GetComponent<Valve.VR.InteractionSystem.Player>();
         // Debug.Log(string.Format("player origin: Pos=({0}), Rot=({1})", player.trackingOriginTransform.position, player.trackingOriginTransform.rotation));
@@ -53,9 +53,9 @@ public class Vive_Input : MonoBehaviour
         // Quaternion camRot = GameObject.FindWithTag("MainCamera").transform.rotation * axisRot;
         // GameObject.FindWithTag("MainCamera").transform.rotation = camRot;
 
-        Vector3 dAxisRot = axisRot * Time.deltaTime;
-        GameObject.FindWithTag("Player").transform.Rotate(90 * dAxisRot);
-        // GameObject.FindWithTag("MainCamera").transform.Rotate(90 * dAxisRot);
+        Vector3 dAxisRot = axisRot * 90 * Time.deltaTime;
+        GameObject.FindWithTag("Player").transform.Rotate(dAxisRot);
+        // GameObject.FindWithTag("MainCamera").transform.Rotate(dAxisRot);
 
         // GameObject.FindWithTag("Player").transform.Translate(flatTrans);
     }
@@ -68,7 +68,8 @@ public class Vive_Input : MonoBehaviour
         Vector3 front = (new Vector3(axis[0], 0, axis[1]));
         
         // Vector3 camFront = m_CameraRig.rotation * front;
-        Vector3 camFront = GameObject.FindWithTag("MainCamera").transform.rotation * front;
+        // Vector3 camFront = GameObject.FindWithTag("MainCamera").transform.rotation * front;
+        Vector3 camFront = GameObject.FindWithTag("MainCamera").transform.localRotation * front;
         Vector3 flatNorm = (new Vector3(camFront.x, 0, camFront.z)).normalized;
         Vector3 flatTrans = flatNorm * (5.0f * Time.deltaTime);
 
