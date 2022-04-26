@@ -2049,7 +2049,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+    - {fileID: 5167925851093600298, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
 --- !u!4 &152318001 stripped
 Transform:
@@ -2336,6 +2338,10 @@ PrefabInstance:
     - target: {fileID: 4000010733554458, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2769,6 +2775,10 @@ PrefabInstance:
     - target: {fileID: 4000010733554458, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9554,6 +9564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700400954}
   - component: {fileID: 700400955}
+  - component: {fileID: 700400956}
   m_Layer: 0
   m_Name: GroupB
   m_TagString: Untagged
@@ -9596,6 +9607,21 @@ MonoBehaviour:
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
   normalMusicXML: {fileID: 4900000, guid: d959e0c38fc3309478da42955dadf1bd, type: 3}
+--- !u!114 &700400956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700400953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3cd20a6abeb7642ac3fcc1957c6390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
+  scaleMax: 2.2
+  scaleMin: 0.3
 --- !u!1001 &707671068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14917,6 +14943,10 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011214558378, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ebf65e069a3d3f4bbb68b42e5c4840e, type: 2}
@@ -17738,7 +17768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardTag: Card
-  triggerName: LeftHand
+  triggerName: Sphere
 --- !u!1001 &1088011535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18807,6 +18837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172249686}
   - component: {fileID: 1172249687}
+  - component: {fileID: 1172249688}
   m_Layer: 0
   m_Name: GroupC
   m_TagString: Untagged
@@ -18849,6 +18880,21 @@ MonoBehaviour:
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
   normalMusicXML: {fileID: 4900000, guid: 1be5272fdf2c1554f9e7396a9505410d, type: 3}
+--- !u!114 &1172249688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172249685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3cd20a6abeb7642ac3fcc1957c6390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
+  scaleMax: 2.2
+  scaleMin: 0.3
 --- !u!1001 &1173099605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19693,7 +19739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 1.762
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26006,8 +26052,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475682252}
-  - {fileID: 1547300889}
   - {fileID: 1310915748}
+  - {fileID: 1547300889}
   m_Father: {fileID: 1087895297}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28853,6 +28899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1902515823}
   - component: {fileID: 1902515824}
+  - component: {fileID: 1902515825}
   m_Layer: 0
   m_Name: GroupA
   m_TagString: Untagged
@@ -28895,6 +28942,21 @@ MonoBehaviour:
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
   normalMusicXML: {fileID: 4900000, guid: 74b17852a85fa9f4d9c1203241167917, type: 3}
+--- !u!114 &1902515825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902515822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3cd20a6abeb7642ac3fcc1957c6390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
+  scaleMax: 2.2
+  scaleMin: 0.3
 --- !u!1001 &1903314895
 PrefabInstance:
   m_ObjectHideFlags: 0
