@@ -7,13 +7,29 @@ public class MusicPanel : MonoBehaviour
 
 	private List<RingControl> rings = new List<RingControl>();
 	
+	public void AddObject(GameObject obj)
+	{
+		// MusicConsumer music = obj.GetComponent<MusicConsumer>();
+		// RingControl ring = obj.GetComponent<RingControl>();
+
+		// GetComponent<MusicGroup>().AddConsumer(music);
+		// GetComponent<RingGroup>().AddControl(ring);
+
+		MusicConsumer music = obj.GetComponent<MusicConsumer>();
+		music.isEnabled = true;
+	}
+
+	public void RemoveObject(GameObject obj)
+	{
+		// TODO: 
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		MusicConsumer mc = other.GetComponent<MusicConsumer>();
-		if (mc != null){
-			mc.isEnabled = true;
-		}
+		// MusicConsumer mc = other.GetComponent<MusicConsumer>();
+		// if (mc != null){
+		// 	mc.isEnabled = true;
+		// }
 
 		if (other.tag == "Player")
         {
@@ -23,14 +39,14 @@ public class MusicPanel : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		MusicConsumer mc = other.GetComponent<MusicConsumer>();
-		if (mc != null)
-		{
-			mc.isEnabled = false;
-		}
+		// MusicConsumer mc = other.GetComponent<MusicConsumer>();
+		// if (mc != null)
+		// {
+		// 	mc.isEnabled = false;
+		// }
 	}
 
-	private void StartExhibition() // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
+	public void StartExhibition() // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
 	{
 		MusicGroup musicGroup = GetComponent<MusicGroup>();
 		RingGroup ringGroup = GetComponent<RingGroup>();
