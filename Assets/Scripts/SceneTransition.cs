@@ -31,9 +31,8 @@ public class SceneTransition : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		
-		if(other.tag=="Player"){
-			player = other.gameObject;
+		if(other.tag=="PlayerCapsule"){
+			player = GameObject.FindGameObjectWithTag("Player");
 			StartCoroutine(SwitchScene(levelNames[(int)sceneName]));
 		}
 	}

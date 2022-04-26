@@ -55,6 +55,11 @@
       "requirement": "mandatory"
     },
     {
+      "name": "/actions/default/in/touchpadRight",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

@@ -88,7 +88,11 @@ namespace HTC.UnityPlugin.Vive
         public ulong PrimeryTeleportButton { get { return primaryTeleportButton; } set { primaryTeleportButton = value; } }
 
         public uint SecondaryTeleportButton { get { return secondaryTeleportButton; } set { secondaryTeleportButton = value; } }
-
+// RegCode - Start
+private void Start(){
+    target = GameObject.FindGameObjectWithTag("Player").transform;
+    pivot = GameObject.FindGameObjectWithTag("MainCamera").transform;
+}
         [Obsolete("Use IsSecondaryTeleportButtonOn and SetSecondaryTeleportButton instead")]
         public TeleportButton teleportButton
         {

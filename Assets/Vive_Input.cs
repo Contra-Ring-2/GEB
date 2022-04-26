@@ -22,28 +22,42 @@ public class Vive_Input : MonoBehaviour
         
     }
     private void Start(){
-        m_CameraRig = SteamVR_Render.Top().origin;
-        m_Head = SteamVR_Render.Top().head;
+        //m_CameraRig = SteamVR_Render.Top().origin;
+        //m_Head = SteamVR_Render.Top().head;
     }
     private void Update(){
-        // Debug.Log(m_MoveValue);
-        //Debug.Log(string.Format("Vector2({0})", m_MoveValue.axis));
+        //Debug.Log(m_MoveValue);
+        // Debug.Log(string.Format("Vector2({0})", m_MoveValueLeft.axis));
+        Debug.Log(string.Format("Vector2({0})", m_MoveValueRight.axis));
 
         // Valve.VR.InteractionSystem.Player player = GameObject.FindWithTag("Player").GetComponent<Valve.VR.InteractionSystem.Player>();
         // Debug.Log(string.Format("player origin: Pos=({0}), Rot=({1})", player.trackingOriginTransform.position, player.trackingOriginTransform.rotation));
         // Debug.Log(string.Format("player: Pos=({0}), Rot=({1})", player.transform.position, player.transform.rotation));
 
-       // HandleHead();
+       HandleHead();
         CalculateMovement();
         HandleHeight();
     }
     private void HandleHead(){
-        Vector3 oldPosition = m_CameraRig.position;
-        Quaternion oldRotation = m_CameraRig.rotation;
+        // Vector3 oldPosition = m_CameraRig.position;
+        // Quaternion oldRotation = m_CameraRig.rotation;
 
-        transform.eulerAngles = new Vector3(0.0f,m_Head.rotation.eulerAngles.y,0.0f);
-        m_CameraRig.position = oldPosition;
-        m_CameraRig.rotation = oldRotation;
+        // transform.eulerAngles = new Vector3(0.0f,m_Head.rotation.eulerAngles.y,0.0f);
+        // m_CameraRig.position = oldPosition;
+        // m_CameraRig.rotation = oldRotation;
+
+        Vector2 axis = m_MoveValueRight.axis;
+        // Quaternion axisRot = Quaternion.Euler(new Vector3(0, axis.x, axis.y));
+        Vector3 axisRot = new Vector3(0, axis.x, 0); // new Vector3(0, axis.x, axis.y);
+
+        // Quaternion camRot = GameObject.FindWithTag("MainCamera").transform.rotation * axisRot;
+        // GameObject.FindWithTag("MainCamera").transform.rotation = camRot;
+
+        Vector3 dAxisRot = axisRot * Time.deltaTime;
+        GameObject.FindWithTag("Player").transform.Rotate(90 * dAxisRot);
+        // GameObject.FindWithTag("MainCamera").transform.Rotate(90 * dAxisRot);
+
+        // GameObject.FindWithTag("Player").transform.Translate(flatTrans);
     }
     private void CalculateMovement(){
         // Vector3 oldPosition = m_CameraRig.position;
@@ -62,10 +76,10 @@ public class Vive_Input : MonoBehaviour
         // GameObject.FindWithTag("")
 
         // GameObject.FindWithTag("Player").transform.Translate(front);
-        // GameObject.FindWithTag("Player").transform.Translate(flatTrans);
+        GameObject.FindWithTag("Player").transform.Translate(flatTrans);
         
-        // TODO:
-        GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity = flatNorm * 5.0f; //flatTrans;
+        // // TODO:
+        // GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity = flatNorm * 5.0f; //flatTrans;
 
         // Debug.Log("Camera rotaion: " + m_CameraRig.rotation);
 
