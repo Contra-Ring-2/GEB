@@ -52,6 +52,8 @@ public class AnimatorControl_JelloMan : MonoBehaviour
         State.Add(state_argue);
         CharacterState state_angry = new CharacterState("angry", 2);
         State.Add(state_angry);
+        CharacterState state_walk = new CharacterState("walk", 3);
+        State.Add(state_angry);
 
     }
 
