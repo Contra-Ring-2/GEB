@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/HTC.UnityPlugin/ViveInputUtility/Examples/8.NearFieldHandInteraction/Prefabs.meta
 guid: 0ccf5842f587c284e8708d1ce66523dd
+========
+guid: fa9be73dbc035ed479932abee528baac
+>>>>>>>> 8caa226 (dialogue):Assets/StarterAssets/streamVR.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,3 +1,22 @@
+<<<<<<< HEAD
 hello
 fucking 
 world
+=======
+Paragraphs are the building blocks 
+of papers. Many students define 
+ord and Connors 11 Length and
+appearance do not determine whether a 
+-
+many techniques for brainstorming
+whichever one you choose, this stage of
+paragraph development cannot be
+skipped. Building paragraphs can be
+like building aare building. Any
+-
+cracks, inconsistencies, or
+other corruptions of the foundation can cause your whole paper to crumble.
+-
+So, let’s suppose that you have done
+some brainstorming to develop your
+>>>>>>> 8caa226 (dialogue)
