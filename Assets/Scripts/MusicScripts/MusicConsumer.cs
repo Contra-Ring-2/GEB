@@ -230,8 +230,21 @@ public class MusicConsumer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicGroup = transform.parent.GetComponent<MusicGroup>();
-        Debug.Assert(musicGroup != null, "MusicCosumer needs a parent MusicGroup object");
+        musicGroup = null;
+
+        // Transform root = transform.root;
+        for (Transform anc = transform.parent; anc != null; anc = anc.parent)
+        {
+            musicGroup = anc.GetComponent<MusicGroup>();
+            
+            if (musicGroup != null)
+            {
+                break;
+            }
+        }
+
+        // musicGroup = transform.parent.GetComponent<MusicGroup>();
+        Debug.Assert(musicGroup != null, "MusicCosumer needs an ancestor with MusicGroup");
 
         //if (targetTempo == 0.0f)
         //{

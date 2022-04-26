@@ -25,9 +25,20 @@ public class RingControl : MonoBehaviour
     private GameObject newArc;
     void Start()
     {
-        ringGroup = transform.parent.GetComponent<RingGroup>();
-        Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
+        // ringGroup = transform.parent.GetComponent<RingGroup>();
+        // Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
+        ringGroup = null;
+        for (Transform anc = transform.parent; anc != null; anc = anc.parent)
+        {
+            ringGroup = anc.GetComponent<RingGroup>();
+            
+            if (ringGroup != null)
+            {
+                break;
+            }
+        }
 
+        Debug.Assert(ringGroup != null, "RingControl needs an ancestor RingGroup");
         Debug.Assert(GetComponent<MusicConsumer>() != null, "RingControl needs a MusicConsumer");
 
         ringGroup.AddControl(this);
