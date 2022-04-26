@@ -17,7 +17,7 @@ public class PlayMusicGroupOnTrigger : MonoBehaviour
 
         if (other.tag == cardTag)
         {
-            GetComponent<MusicPanel>().AddObject(other.gameObject);
+            GetComponent<MusicPanel>().AddObject(other.GetComponent<MusicConsumer>());
         }
 
         if (other.name == triggerName)
