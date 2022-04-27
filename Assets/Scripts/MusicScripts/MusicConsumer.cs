@@ -292,6 +292,15 @@ public class MusicConsumer : MonoBehaviour
             }
         }
 
+        // Debug:
+        {
+            foreach (var note in res)
+            {
+                note.start_time += 60 / musicGroup.tempo;
+                note.end_time += 60 / musicGroup.tempo;
+            }
+        }
+
         return res.ToArray();
     }
 

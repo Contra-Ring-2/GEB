@@ -119,8 +119,13 @@ public class RingControl : MonoBehaviour
 
     public void UpdateNotes(float time, float spc)
     {
+        if (arcs == null)
+        {
+            return;
+        }
+
         Color _color1 = ringColor; // arcs[0].GetComponent<Renderer>().material.GetColor("Color_"); // arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
-        Color _color2 = Color.white; // _color1 * 1.2f;
+        Color _color2 = _color1 * 1.5f; // Color.white; // _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
         {
             if (local_notes[i].start_time < time && local_notes[i].end_time > time)
@@ -177,7 +182,7 @@ public class RingControl : MonoBehaviour
             foreach (GameObject arc in arcs)
             {
                 Debug.Assert(arc != null);
-                
+
                 arc.SetActive(false);
                 Destroy(arc);
             }

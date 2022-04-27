@@ -125,17 +125,19 @@ public class MusicPanel : MonoBehaviour
 	{
 		// musicGroups = transform.GetComponentsInChildren<MusicGroup>().ToList();
 		musicGroups = new List<MusicGroup>(transform.GetComponentsInChildren<MusicGroup>());
-		foreach (MusicGroup musicGroup in musicGroups)
-		{
-			ringGroups.Add(musicGroup.GetComponent<RingGroup>());
-		}
+		ringGroups = new List<RingGroup>(transform.GetComponentsInChildren<RingGroup>());
+		
+		// foreach (MusicGroup musicGroup in musicGroups)
+		// {
+		// 	ringGroups.Add(musicGroup.GetComponent<RingGroup>());
+		// }
 	}
 
     private void Start()
     {
 		SearchAllGroups();
 		Debug.Assert(musicGroups.Count > 0 && ringGroups.Count > 0, "MusicPanel should contain MusicGroups & RingGroups");
-		Debug.Assert(!ringGroups.Contains(null), "MusicGroups & RingGroups should be paired");
+		// Debug.Assert(!ringGroups.Contains(null), "MusicGroups & RingGroups should be paired");
 
 
     }
