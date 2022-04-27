@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - RenderPlane
   - PlayerCapsule
+  - storyball
+  - step
   layers:
   - Default
   - TransparentFX
