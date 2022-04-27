@@ -183,6 +183,8 @@ public class MusicConsumer : MonoBehaviour
                         float noteOffset = 0.0f, lastNoteLength = 0.0f;
                         foreach (XmlNode note in measure.SelectNodes("note"))
                         {
+                            // TODO: handle rests
+
                             if (note.SelectSingleNode("chord") == null)
                             {
                                 noteOffset += lastNoteLength;

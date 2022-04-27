@@ -165,6 +165,12 @@ public class RingControl : MonoBehaviour
     public void Stop()
     {
         // TODO: remove all cloned arcs
+        foreach (GameObject arc in arcs)
+        {
+            Destroy(arc);
+        }
+        
+        arcs = null;
     }
 
     // Update is called once per frame
