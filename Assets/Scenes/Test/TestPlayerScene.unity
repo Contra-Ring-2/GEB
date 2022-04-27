@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnlySceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2795286087320030418, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -561,6 +565,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 171246, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -684,7 +696,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1576454700
 MeshRenderer:
