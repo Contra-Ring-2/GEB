@@ -183,8 +183,6 @@ public class MusicConsumer : MonoBehaviour
                         float noteOffset = 0.0f, lastNoteLength = 0.0f;
                         foreach (XmlNode note in measure.SelectNodes("note"))
                         {
-                            // TODO: handle rests
-
                             if (note.SelectSingleNode("chord") == null)
                             {
                                 noteOffset += lastNoteLength;
@@ -193,29 +191,33 @@ public class MusicConsumer : MonoBehaviour
                             float duration = float.Parse(
                                 note.SelectSingleNode("duration").InnerText
                             );
-
-                            XmlNode pitch = note.SelectSingleNode("pitch");
-                            Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
-
-                            string step = pitch.SelectSingleNode("step").InnerText;
-                            float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
-
-                            float noteStart = measureOffset + noteOffset;
-                            float pitchValue = keyValue[step] + octave*7.0f;
                             float noteLength = duration / division;
 
-                            float noteStartSec = waitSec + secPerBeat * noteStart;
-                            float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
-                            float noteLengthSec = secPerBeat * noteLength;
-
-                            MusicGroup.Note note1 = new MusicGroup.Note
+                            if (note.SelectSingleNode("rest") == null)
                             {
-                                start_time = noteStartSec,
-                                end_time   = noteStartSec + noteLengthSec,
-                                hieght     = pitchHeight
-                            };
+                                XmlNode pitch = note.SelectSingleNode("pitch");
+                                Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
 
-                            notes.Add(note1);
+                                string step = pitch.SelectSingleNode("step").InnerText;
+                                float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
+
+                                float noteStart = measureOffset + noteOffset;
+                                float pitchValue = keyValue[step] + octave*7.0f;
+                                // float noteLength = duration / division;
+
+                                float noteStartSec = waitSec + secPerBeat * noteStart;
+                                float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
+                                float noteLengthSec = secPerBeat * noteLength;
+
+                                MusicGroup.Note note1 = new MusicGroup.Note
+                                {
+                                    start_time = noteStartSec,
+                                    end_time   = noteStartSec + noteLengthSec,
+                                    hieght     = pitchHeight
+                                };
+
+                                notes.Add(note1);
+                            }
 
                             lastNoteLength = noteLength;
                         }
