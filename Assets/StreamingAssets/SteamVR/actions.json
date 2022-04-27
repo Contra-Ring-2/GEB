@@ -60,6 +60,16 @@
       "requirement": "mandatory"
     },
     {
+      "name": "/actions/default/in/InteractLeft",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/default/in/InteractRight",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -501,7 +511,9 @@
       "/actions/htc_viu/in/viu_axis_4xy": "Axis4 X&Y",
       "/actions/htc_viu/out/viu_vib_01": "Vibration",
       "/actions/htc_viu/in/viu_skeleton_left": "Skeleton (Left)",
-      "/actions/htc_viu/in/viu_skeleton_right": "Skeleton (Right)"
+      "/actions/htc_viu/in/viu_skeleton_right": "Skeleton (Right)",
+      "/actions/default/in/InteractLeft": "InteractLeft",
+      "/actions/default/in/InteractRight": "InteractRight"
     }
   ]
 }
