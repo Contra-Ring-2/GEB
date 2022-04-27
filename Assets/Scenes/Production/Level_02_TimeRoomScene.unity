@@ -69094,6 +69094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2FloorSceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5003168790479692768, guid: 39ce76197f7befb48a4b26ffde81e921, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5003168790479692774, guid: 39ce76197f7befb48a4b26ffde81e921, type: 3}
       propertyPath: m_RootOrder
       value: 3

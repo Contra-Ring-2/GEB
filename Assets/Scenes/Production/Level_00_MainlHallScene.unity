@@ -38949,6 +38949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallSceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 342204696785181255, guid: 4f3370f9a808ce04b8b7101069afdee9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6755338925512974377, guid: 4f3370f9a808ce04b8b7101069afdee9, type: 3}
       propertyPath: m_Size.z
       value: 15.89
