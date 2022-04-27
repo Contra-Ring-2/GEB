@@ -234,7 +234,7 @@ public class MusicConsumer : MonoBehaviour
     public MusicGroup.Note[] applyModifier(MusicGroup.Note[] notes)
     {
         List<MusicGroup.Note> res = new List<MusicGroup.Note>(notes);
-        if (modifier & MusicGroup.FlipModifier.HFLIP)
+        if ((modifier & MusicGroup.FlipModifier.VFLIP) > 0)
         {
             List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
 
@@ -244,7 +244,7 @@ public class MusicConsumer : MonoBehaviour
                 float pitchHeight = note.hieght;
                 float pitchValue = pitchHeight - keyShift - 1.0f;
 
-                float newPitch = musicGroup.hFlipOffset - pitchValue;
+                float newPitch = musicGroup.vFlipOffset - pitchValue;
                 float newPitchHeight = keyShift + (1.0f + newPitch);
 
                 newres.Add(
@@ -260,11 +260,11 @@ public class MusicConsumer : MonoBehaviour
             res = newres;
         }
 
-        if (modifier & MusicGroup.FlipModifier.VFLIP)
+        if ((modifier & MusicGroup.FlipModifier.HFLIP) > 0)
         {
             List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
 
-            float endTime = -1e20;
+            float endTime = -1e20F;
             foreach (var note in res)
             {
                 endTime = Math.Max(endTime, note.end_time);
@@ -275,14 +275,21 @@ public class MusicConsumer : MonoBehaviour
                 newres.Add(
                     new MusicGroup.Note
                     {
-                        start_time = endTime - note.start_time,
-                        end_time = endTime - note.end_time,
+                        start_time = endTime - note.end_time,
+                        end_time = endTime - note.start_time,
                         hieght = note.hieght
                     }
                 );
             }
 
             res = newres;
+            
+            // Debug:
+            Debug.Log("Is HFLIP:");
+            foreach (var note in res)
+            {
+                Debug.Log(note);
+            }
         }
 
         return res.ToArray();

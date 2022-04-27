@@ -27,9 +27,10 @@ public class MusicPanel : MonoBehaviour
 		music.isEnabled = true;
 	}
 
-	public void RemoveObject(GameObject obj)
+	public void RemoveObject(MusicConsumer music)
 	{
 		// TODO: 
+		music.isEnabled = false;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -56,6 +57,8 @@ public class MusicPanel : MonoBehaviour
 
 	public void StartExhibition() // ½Ð¶}©lªíºt (一句廢話，好像是開始表演拉)
 	{
+		StopExhibition();
+
 		// MusicGroup musicGroup = GetComponent<MusicGroup>();
 		// RingGroup ringGroup = GetComponent<RingGroup>();
 
@@ -69,6 +72,10 @@ public class MusicPanel : MonoBehaviour
 			//GetComponent<MusicGroup>().PlayAllMusic();
 			
 			float prepSec = 4 * (60 / musicGroup.tempo);
+
+			// // Debug:
+			// Debug.Log("OBJ: " + (MasterModel.TheModel == null) + " " + prepSec + " " + (musicGroup == null));
+			// musicGroup.PlayAllMusic();
 
 			// TODO:
 			MasterModel.TheModel.CallbackInSecond(
@@ -87,6 +94,8 @@ public class MusicPanel : MonoBehaviour
 				{
 					return;
 				}
+
+				// Debug.Log("update ring exhibition");
 
 				ringGroup.UpdateAllRingNotes(Time.time - startTime - prepSec, spc);
 				MasterModel.TheModel.CallbackWaitingFor(new WaitForFixedUpdate(), UpdateExhibition);

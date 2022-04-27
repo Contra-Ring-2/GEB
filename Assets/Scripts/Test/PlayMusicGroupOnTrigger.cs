@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayMusicGroupOnTrigger : MonoBehaviour
 {
     public string cardTag;
-    public string triggerName;
+    public string triggerTag;
 
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
@@ -13,23 +13,40 @@ public class PlayMusicGroupOnTrigger : MonoBehaviour
     /// <param name="other">The other Collider involved in this collision.</param>
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(string.Format("{0}: enter {1}", this, other));
+        Debug.Log(string.Format("{0}: enter ({1}, {2})", this, other.name, other.tag));
 
         if (other.tag == cardTag)
         {
+            Debug.Log("Add object: " + other);
             GetComponent<MusicPanel>().AddObject(other.GetComponent<MusicConsumer>());
         }
 
-        if (other.name == triggerName)
+        if (other.tag == triggerTag)
         {
+            Debug.Log("Start: " + other);
             GetComponent<MusicPanel>().StartExhibition();
+        }
+    }
+
+    /// <summary>
+    /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log(string.Format("{0}: leave ({1}, {2})", this, other.name, other.tag));
+
+        if (other.tag == cardTag)
+        {
+            Debug.Log("Remove object: " + other);
+            GetComponent<MusicPanel>().RemoveObject(other.GetComponent<MusicConsumer>());
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Assert(triggerName != "");
+        Debug.Assert(triggerTag != "");
         Debug.Assert(cardTag != "");
         Debug.Assert(GetComponent<MusicPanel>() != null);
     }

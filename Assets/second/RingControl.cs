@@ -14,7 +14,7 @@ public class RingControl : MonoBehaviour
 
     private GameObject arc_prefab;
     //public const float _circle_time = 1; //6; //material's cycle time
-    public GameObject[] arcs;
+    public GameObject[] arcs = new GameObject[0];
 
     private RingGroup ringGroup;
 
@@ -65,6 +65,8 @@ public class RingControl : MonoBehaviour
             GameObject newarc = Instantiate(arc_prefab);
             Material mat_newarc = new Material(newarc.GetComponent<Renderer>().material); // Instantiate(newarc.GetComponent<Renderer>().material);
 
+            // Debug:
+            newarc.transform.Translate(new Vector3(0, 0, 3));
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
             //float _time = (interval / 2f) + (notes[i].start_time); // * (_circle_time / spc);
@@ -106,6 +108,11 @@ public class RingControl : MonoBehaviour
     // TODO: beats per measure (time signature)
     public void Play(float tempo, int partIdx)
     {
+        if (!GetComponent<MusicConsumer>().isEnabled)
+        {
+            return;
+        }
+
         Note[] notes = GetComponent<MusicConsumer>().GetNotes(partIdx);
         CreateRing(notes, (60 / tempo) * 8); //, 50);
     }
@@ -159,15 +166,21 @@ public class RingControl : MonoBehaviour
 
     public void Pause()
     {
-
+        
     }
 
     public void Stop()
     {
-        // TODO: remove all cloned arcs
-        foreach (GameObject arc in arcs)
+        if (arcs != null)
         {
-            Destroy(arc);
+            // TODO: remove all cloned arcs
+            foreach (GameObject arc in arcs)
+            {
+                Debug.Assert(arc != null);
+                
+                arc.SetActive(false);
+                Destroy(arc);
+            }
         }
         
         arcs = null;

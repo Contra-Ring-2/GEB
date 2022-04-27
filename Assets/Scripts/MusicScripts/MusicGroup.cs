@@ -31,7 +31,7 @@ public class MusicGroup : MonoBehaviour
         }
     }
 
-    public enum FlipModifier
+    public enum FlipModifier : uint
     {
         NORMAL = 0,
         VFLIP = 1,
@@ -51,7 +51,7 @@ public class MusicGroup : MonoBehaviour
     public AudioClip vHFlipSource;
 
     public TextAsset normalMusicXML;
-    public float hFlipOffset;
+    public float vFlipOffset;
 
     private readonly List<MusicConsumer> consumers = new List<MusicConsumer>();
 
