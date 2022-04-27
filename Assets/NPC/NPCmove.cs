@@ -14,7 +14,7 @@ public class NPCmove : MonoBehaviour
     public float speed = 4f;
     //public GameObject dialogue;
     //public GameObject storyball;
-    public bool canwalk = true;
+    public bool canwalk = false;
 
     // Use this for initialization
     void Start()

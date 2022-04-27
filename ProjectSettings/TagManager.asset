@@ -9,6 +9,7 @@ TagManager:
   - PlayerCapsule
   - storyball
   - step
+  - dialogue
   layers:
   - Default
   - TransparentFX
