@@ -50,14 +50,29 @@ public class RingControl : MonoBehaviour
         local_notes = notes;
 
         // analyze height of notes
+        /*
         float heightMin = 1e20f, heightMax = -1e20f;
         foreach (Note note in notes)
         {
             heightMin = Math.Min(heightMin, note.hieght);
             heightMax = Math.Max(heightMax, note.hieght);
         }
+        */
 
-        float heightRange = heightMax - heightMin;
+        //float heightRange = heightMax - heightMin;
+        // float heightRange = 48;
+        float heightRange = ringGroup.heightMax - ringGroup.heightMin;
+
+        {
+            float heightMin = 1e20f, heightMax = -1e20f;
+            foreach (Note note in notes)
+            {
+                heightMin = Math.Min(heightMin, note.hieght);
+                heightMax = Math.Max(heightMax, note.hieght);
+            }
+
+            Debug.Log(string.Format("Ring: [{0}, {1}]", heightMin, heightMax));
+        }
 
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
@@ -84,7 +99,7 @@ public class RingControl : MonoBehaviour
                 float ratio = (float) Math.Pow(scaleMax / scaleMin, 1 / heightRange);
 
                 //float scaleFac = 2 * (notes[i].hieght); // 1 + (notes[i].hieght / hieght_range);
-                float scaleFac = (float) (scaleMin * Math.Pow(ratio, notes[i].hieght - heightMin));
+                float scaleFac = (float) (scaleMin * Math.Pow(ratio, notes[i].hieght - ringGroup.heightMin));
                 newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
             }
 

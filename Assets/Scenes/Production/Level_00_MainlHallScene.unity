@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.9490196, g: 0.7764706, b: 0.38431373, a: 0}
+  ringColor: {r: 0.05882353, g: 0.5137255, b: 0.65882355, a: 0}
   arcs: []
 --- !u!114 &76836771
 MonoBehaviour:
@@ -1976,7 +1976,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 3, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &87865541
 BoxCollider:
@@ -3260,7 +3260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600296, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_Name
-      value: MusicPanel_Room3
+      value: MusicPanel_Room3_old
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600296, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_IsActive
@@ -5916,7 +5916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringColor: {r: 0.6834988, g: 0.8490566, b: 0.40450338, a: 0}
   arcs: []
 --- !u!114 &263846064
 MonoBehaviour:
@@ -11670,8 +11670,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
-  scaleMax: 2.2
+  scaleMax: 7
   scaleMin: 0.3
+  heightMin: 19
+  heightMax: 35
 --- !u!114 &536083970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11686,11 +11688,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterMixerGroup: {fileID: 24300002, guid: beecd41cabfe5c749b5e698bd4f5b4ec, type: 2}
   tempo: 150
-  normalSource: {fileID: 8300000, guid: 9860f110bab9dbd4092efa1810fc04c4, type: 3}
-  vFlipSource: {fileID: 8300000, guid: e42cf3a90a2440f4880fcad0af803410, type: 3}
+  normalSource: {fileID: 8300000, guid: 54435263cb112c44c8ea2bdaf361b6eb, type: 3}
+  vFlipSource: {fileID: 8300000, guid: e0e7e3b29b2cfb145bc619fa1a76642f, type: 3}
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
-  normalMusicXML: {fileID: 4900000, guid: d959e0c38fc3309478da42955dadf1bd, type: 3}
+  normalMusicXML: {fileID: 4900000, guid: 724db0c66fe10f54c859d4db548dc70a, type: 3}
   vFlipOffset: 54
 --- !u!1 &539423670
 GameObject:
@@ -15847,6 +15849,8 @@ MonoBehaviour:
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
   scaleMax: 2.2
   scaleMin: 0.3
+  heightMin: 4
+  heightMax: 52
 --- !u!1001 &707671068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20444,7 +20448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 1, g: 0.9813726, b: 0, a: 0}
+  ringColor: {r: 0.9245283, g: 0.5538448, b: 0.79154086, a: 0}
   arcs: []
 --- !u!114 &859897075
 MonoBehaviour:
@@ -27163,9 +27167,25 @@ PrefabInstance:
       propertyPath: masterMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: beecd41cabfe5c749b5e698bd4f5b4ec, type: 2}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: scaleMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: scaleMin
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: heightMax
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: heightMin
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27334,7 +27354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.89411765, g: 0.32941177, b: 0.38431373, a: 0}
+  ringColor: {r: 0.02745098, g: 0.21568628, b: 0.2784314, a: 0}
   arcs: []
 --- !u!114 &1039724179
 MonoBehaviour:
@@ -28406,11 +28426,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: scaleMin
-      value: 1
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: heightMax
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167925851093600299, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
+      propertyPath: heightMin
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29772,8 +29800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
-  scaleMax: 1
-  scaleMin: 0.2
+  scaleMax: 6.6
+  scaleMin: 0.3
+  heightMin: 23
+  heightMax: 44
 --- !u!1 &1172249685
 GameObject:
   m_ObjectHideFlags: 0
@@ -29845,6 +29875,8 @@ MonoBehaviour:
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
   scaleMax: 2.2
   scaleMin: 0.3
+  heightMin: 4
+  heightMax: 52
 --- !u!1001 &1173099605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32158,7 +32190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.89411765, g: 0.32941177, b: 0.38431373, a: 0}
+  ringColor: {r: 0.023529412, g: 0.8, b: 0.59607846, a: 0}
   arcs: []
 --- !u!114 &1269696607
 MonoBehaviour:
@@ -39386,7 +39418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: d0223f77114284b47a0e8b317e71e4dc, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: d0223f77114284b47a0e8b317e71e4dc, type: 3}
       propertyPath: m_RootMapOrder
@@ -41379,7 +41411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9121495380023925193, guid: 8b99f5a88e8f7f648b66cb417572493c, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9121495380023925193, guid: 8b99f5a88e8f7f648b66cb417572493c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43862,7 +43894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44275,7 +44307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e638850b6c7e4db1801e2fee319a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringColor: {r: 0.9490196, g: 0.7764706, b: 0.38431373, a: 0}
+  ringColor: {r: 0.8666667, g: 0.3254902, b: 0.6627451, a: 0}
   arcs: []
 --- !u!114 &1773081067
 MonoBehaviour:
@@ -47302,6 +47334,8 @@ MonoBehaviour:
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
   scaleMax: 5
   scaleMin: 1
+  heightMin: 4
+  heightMax: 52
 --- !u!1001 &1903314895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49584,8 +49618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
-  scaleMax: 2.2
+  scaleMax: 7
   scaleMin: 0.3
+  heightMin: 19
+  heightMax: 35
 --- !u!114 &1977560483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49600,11 +49636,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterMixerGroup: {fileID: 24300002, guid: beecd41cabfe5c749b5e698bd4f5b4ec, type: 2}
   tempo: 150
-  normalSource: {fileID: 8300000, guid: 01964041e59d707468ad6c2459041a26, type: 3}
-  vFlipSource: {fileID: 8300000, guid: fea7c08946b7d0243b61fdf030640345, type: 3}
+  normalSource: {fileID: 8300000, guid: f0679b3ac15f94445acf61c6c4d35afb, type: 3}
+  vFlipSource: {fileID: 8300000, guid: 04e6ace35c0d85e4d9cfc9c3461ee19d, type: 3}
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
-  normalMusicXML: {fileID: 4900000, guid: 1be5272fdf2c1554f9e7396a9505410d, type: 3}
+  normalMusicXML: {fileID: 4900000, guid: 138b0a63d2bf7be40aa87a0b6c0a7048, type: 3}
   vFlipOffset: 47
 --- !u!1001 &1979912547
 PrefabInstance:
@@ -50205,8 +50241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arc_prefab: {fileID: 1996625779531059656, guid: 728eaa238c8b3f94ba9c8a245fc35fdd, type: 3}
-  scaleMax: 2.2
+  scaleMax: 7
   scaleMin: 0.3
+  heightMin: 19
+  heightMax: 35
 --- !u!114 &2012800008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50221,11 +50259,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterMixerGroup: {fileID: 24300002, guid: beecd41cabfe5c749b5e698bd4f5b4ec, type: 2}
   tempo: 150
-  normalSource: {fileID: 8300000, guid: 59d6c4190ca95a546bd94f1fc35df68c, type: 3}
-  vFlipSource: {fileID: 8300000, guid: a69c8e6bf062f694aa94bfe64b517f6a, type: 3}
+  normalSource: {fileID: 8300000, guid: 5878fb0eaa075254daf8d7136a12ea0a, type: 3}
+  vFlipSource: {fileID: 8300000, guid: 153e907b4b592644abf6a1564ad81b38, type: 3}
   hFlipSource: {fileID: 0}
   vHFlipSource: {fileID: 0}
-  normalMusicXML: {fileID: 4900000, guid: 74b17852a85fa9f4d9c1203241167917, type: 3}
+  normalMusicXML: {fileID: 4900000, guid: 0fc54b2372e7c34429c9ae5142006b92, type: 3}
   vFlipOffset: 61
 --- !u!4 &2016964181 stripped
 Transform:
@@ -51845,7 +51883,7 @@ Transform:
   - {fileID: 973720366}
   - {fileID: 1974266619}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100902357
 MonoBehaviour:
