@@ -159,7 +159,7 @@ public class MusicConsumer : MonoBehaviour
 
             // TODO: parse/calculate these
             float beatPerMeasure = 4.0f;
-            float partBaseHieght = 8.0f * partIdx;
+            // float partBaseHieght = 8.0f * partIdx;
 
             {
                 float measureOffset = 0.0f;
@@ -206,7 +206,7 @@ public class MusicConsumer : MonoBehaviour
                                 // float noteLength = duration / division;
 
                                 float noteStartSec = waitSec + secPerBeat * noteStart;
-                                float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
+                                float pitchHeight = keyShift + (1.0f + pitchValue);
                                 float noteLengthSec = secPerBeat * noteLength;
 
                                 MusicGroup.Note note1 = new MusicGroup.Note
@@ -228,7 +228,64 @@ public class MusicConsumer : MonoBehaviour
             }
         }
 
-        return notes.ToArray();
+        return applyModifier(notes.ToArray());
+    }
+
+    public MusicGroup.Note[] applyModifier(MusicGroup.Note[] notes)
+    {
+        List<MusicGroup.Note> res = new List<MusicGroup.Note>(notes);
+        if (modifier & MusicGroup.FlipModifier.HFLIP)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            foreach (MusicGroup.Note note in res)
+            {
+                // pitchHeight = keyShift + (1.0f + pitchValue);
+                float pitchHeight = note.hieght;
+                float pitchValue = pitchHeight - keyShift - 1.0f;
+
+                float newPitch = musicGroup.hFlipOffset - pitchValue;
+                float newPitchHeight = keyShift + (1.0f + newPitch);
+
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = note.start_time,
+                        end_time = note.end_time,
+                        hieght = newPitchHeight
+                    }
+                );
+            }
+
+            res = newres;
+        }
+
+        if (modifier & MusicGroup.FlipModifier.VFLIP)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            float endTime = -1e20;
+            foreach (var note in res)
+            {
+                endTime = Math.Max(endTime, note.end_time);
+            }
+
+            foreach (var note in res)
+            {
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = endTime - note.start_time,
+                        end_time = endTime - note.end_time,
+                        hieght = note.hieght
+                    }
+                );
+            }
+
+            res = newres;
+        }
+
+        return res.ToArray();
     }
 
     // Start is called before the first frame update
