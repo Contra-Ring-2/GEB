@@ -32,6 +32,15 @@ public class NPCmove : MonoBehaviour
                 targetWayPoint = wayPointList[currentWayPoint];
             walk();
         }
+        else
+        {
+            stay();
+        }
+    }
+
+    void stay() 
+    {
+        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("idle");
     }
 
     void walk()
@@ -41,6 +50,8 @@ public class NPCmove : MonoBehaviour
 
         // move towards the target
         transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
+
+        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("walk");
 
         if (transform.position == targetWayPoint.position)
         {
