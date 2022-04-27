@@ -1002,7 +1002,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.800000011920929,
+        "x": 2.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -1144,7 +1144,7 @@
     "m_ShaderOutputName": "A",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 0.004000000189989805,
+        "e00": 0.10000000149011612,
         "e01": 0.0,
         "e02": 0.0,
         "e03": 0.0,

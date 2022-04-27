@@ -159,7 +159,7 @@ public class MusicConsumer : MonoBehaviour
 
             // TODO: parse/calculate these
             float beatPerMeasure = 4.0f;
-            float partBaseHieght = 8.0f * partIdx;
+            // float partBaseHieght = 8.0f * partIdx;
 
             {
                 float measureOffset = 0.0f;
@@ -183,8 +183,6 @@ public class MusicConsumer : MonoBehaviour
                         float noteOffset = 0.0f, lastNoteLength = 0.0f;
                         foreach (XmlNode note in measure.SelectNodes("note"))
                         {
-                            // TODO: handle rests
-
                             if (note.SelectSingleNode("chord") == null)
                             {
                                 noteOffset += lastNoteLength;
@@ -193,29 +191,33 @@ public class MusicConsumer : MonoBehaviour
                             float duration = float.Parse(
                                 note.SelectSingleNode("duration").InnerText
                             );
-
-                            XmlNode pitch = note.SelectSingleNode("pitch");
-                            Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
-
-                            string step = pitch.SelectSingleNode("step").InnerText;
-                            float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
-
-                            float noteStart = measureOffset + noteOffset;
-                            float pitchValue = keyValue[step] + octave*7.0f;
                             float noteLength = duration / division;
 
-                            float noteStartSec = waitSec + secPerBeat * noteStart;
-                            float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
-                            float noteLengthSec = secPerBeat * noteLength;
-
-                            MusicGroup.Note note1 = new MusicGroup.Note
+                            if (note.SelectSingleNode("rest") == null)
                             {
-                                start_time = noteStartSec,
-                                end_time   = noteStartSec + noteLengthSec,
-                                hieght     = pitchHeight
-                            };
+                                XmlNode pitch = note.SelectSingleNode("pitch");
+                                Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
 
-                            notes.Add(note1);
+                                string step = pitch.SelectSingleNode("step").InnerText;
+                                float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
+
+                                float noteStart = measureOffset + noteOffset;
+                                float pitchValue = keyValue[step] + octave*7.0f;
+                                // float noteLength = duration / division;
+
+                                float noteStartSec = waitSec + secPerBeat * noteStart;
+                                float pitchHeight = keyShift + (1.0f + pitchValue);
+                                float noteLengthSec = secPerBeat * noteLength;
+
+                                MusicGroup.Note note1 = new MusicGroup.Note
+                                {
+                                    start_time = noteStartSec,
+                                    end_time   = noteStartSec + noteLengthSec,
+                                    hieght     = pitchHeight
+                                };
+
+                                notes.Add(note1);
+                            }
 
                             lastNoteLength = noteLength;
                         }
@@ -226,7 +228,64 @@ public class MusicConsumer : MonoBehaviour
             }
         }
 
-        return notes.ToArray();
+        return applyModifier(notes.ToArray());
+    }
+
+    public MusicGroup.Note[] applyModifier(MusicGroup.Note[] notes)
+    {
+        List<MusicGroup.Note> res = new List<MusicGroup.Note>(notes);
+        if (modifier & MusicGroup.FlipModifier.HFLIP)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            foreach (MusicGroup.Note note in res)
+            {
+                // pitchHeight = keyShift + (1.0f + pitchValue);
+                float pitchHeight = note.hieght;
+                float pitchValue = pitchHeight - keyShift - 1.0f;
+
+                float newPitch = musicGroup.hFlipOffset - pitchValue;
+                float newPitchHeight = keyShift + (1.0f + newPitch);
+
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = note.start_time,
+                        end_time = note.end_time,
+                        hieght = newPitchHeight
+                    }
+                );
+            }
+
+            res = newres;
+        }
+
+        if (modifier & MusicGroup.FlipModifier.VFLIP)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            float endTime = -1e20;
+            foreach (var note in res)
+            {
+                endTime = Math.Max(endTime, note.end_time);
+            }
+
+            foreach (var note in res)
+            {
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = endTime - note.start_time,
+                        end_time = endTime - note.end_time,
+                        hieght = note.hieght
+                    }
+                );
+            }
+
+            res = newres;
+        }
+
+        return res.ToArray();
     }
 
     // Start is called before the first frame update

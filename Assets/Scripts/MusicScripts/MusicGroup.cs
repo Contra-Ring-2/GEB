@@ -51,6 +51,7 @@ public class MusicGroup : MonoBehaviour
     public AudioClip vHFlipSource;
 
     public TextAsset normalMusicXML;
+    public float hFlipOffset;
 
     private readonly List<MusicConsumer> consumers = new List<MusicConsumer>();
 
