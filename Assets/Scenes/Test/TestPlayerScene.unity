@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &40371926
 MonoBehaviour:
@@ -590,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.05882353, g: 0.5137255, b: 0.65882355, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &76836771
 MonoBehaviour:
@@ -1963,6 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &237447229
 MonoBehaviour:
@@ -2131,6 +2134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.6834988, g: 0.8490566, b: 0.40450338, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &263846064
 MonoBehaviour:
@@ -3007,6 +3011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &365227111
 MonoBehaviour:
@@ -3112,6 +3117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &375314268
 MonoBehaviour:
@@ -3663,6 +3669,7 @@ MonoBehaviour:
   scaleMin: 0.3
   heightMin: 19
   heightMax: 35
+  ringLocation: {fileID: 0}
 --- !u!114 &536083970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4035,6 +4042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &557512781
 MonoBehaviour:
@@ -4121,6 +4129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.023529412, g: 0.8, b: 0.59607846, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &565400954
 MonoBehaviour:
@@ -4700,6 +4709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.9490196, g: 0.7764706, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &587352999
 MonoBehaviour:
@@ -5041,71 +5051,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594536763}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &620963453
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1136826163095778470, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: sceneName
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2795286087320030418, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_Name
-      value: OnlySceneManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2795286087320030418, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851547973763940026, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e4b8167c2f4eae64a8aa71cd1ad8b5ab, type: 3}
 --- !u!1 &662091645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,6 +5478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &694142031
 MonoBehaviour:
@@ -5808,6 +5754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &717251654
 MonoBehaviour:
@@ -6613,6 +6560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &786617838
 MonoBehaviour:
@@ -7141,6 +7089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.9245283, g: 0.5538448, b: 0.79154086, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &859897075
 MonoBehaviour:
@@ -7566,6 +7515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.9490196, g: 0.7764706, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &885583200
 MonoBehaviour:
@@ -8390,6 +8340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.023529412, g: 0.8, b: 0.59607846, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &928239516
 MonoBehaviour:
@@ -8957,6 +8908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1010850841
 MonoBehaviour:
@@ -9372,7 +9324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9542,6 +9494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.02745098, g: 0.21568628, b: 0.2784314, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1039724179
 MonoBehaviour:
@@ -10082,7 +10035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10224,6 +10177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.02745098, g: 0.21568628, b: 0.2784314, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1094710555
 MonoBehaviour:
@@ -10423,6 +10377,7 @@ MonoBehaviour:
   scaleMin: 0.3
   heightMin: 23
   heightMax: 44
+  ringLocation: {fileID: 0}
 --- !u!1 &1194337943
 GameObject:
   m_ObjectHideFlags: 0
@@ -10573,6 +10528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.023529412, g: 0.8, b: 0.59607846, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1201265481
 MonoBehaviour:
@@ -10919,6 +10875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1201768247
 MonoBehaviour:
@@ -11321,6 +11278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.89411765, g: 0.32941177, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1259074469
 MonoBehaviour:
@@ -11648,6 +11606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.023529412, g: 0.8, b: 0.59607846, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1269696607
 MonoBehaviour:
@@ -12883,6 +12842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.89411765, g: 0.32941177, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1481219781
 MonoBehaviour:
@@ -13292,6 +13252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.9490196, g: 0.7764706, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1485633569
 MonoBehaviour:
@@ -13795,6 +13756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1515284554
 MonoBehaviour:
@@ -14299,6 +14261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1587558084
 MonoBehaviour:
@@ -15392,7 +15355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5167925851093600300, guid: 4845c8c7a8d06aa4baf8d5cf2d74b5cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15666,6 +15629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.8666667, g: 0.3254902, b: 0.6627451, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1773081067
 MonoBehaviour:
@@ -17668,6 +17632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &1969555815
 MonoBehaviour:
@@ -17832,6 +17797,7 @@ MonoBehaviour:
   scaleMin: 0.3
   heightMin: 19
   heightMax: 35
+  ringLocation: {fileID: 0}
 --- !u!114 &1977560483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17998,6 +17964,7 @@ MonoBehaviour:
   scaleMin: 0.3
   heightMin: 19
   heightMax: 35
+  ringLocation: {fileID: 0}
 --- !u!114 &2012800008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18200,6 +18167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &2054098821
 MonoBehaviour:
@@ -18305,6 +18273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0, g: 0, b: 0, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &2060468302
 MonoBehaviour:
@@ -18526,6 +18495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringColor: {r: 0.89411765, g: 0.32941177, b: 0.38431373, a: 0}
+  ringLocationOverride: {fileID: 0}
   arcs: []
 --- !u!114 &2118916847
 MonoBehaviour:

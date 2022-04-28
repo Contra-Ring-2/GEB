@@ -62,36 +62,49 @@ public class SceneTransition : MonoBehaviour
             }
             */
 
-            StartCoroutine(SwitchScene(levelNames[(int)sceneName]));
+            StartCoroutine(SwitchCurrentScene(levelNames[(int)sceneName]));
         }
     }
 
     private void Start()
     {
+        if (!SceneManager.GetSceneByName(GetSceneRealName(SceneNameType.Level_00_MainlHallScene)).IsValid())
+        {
+            SwitchScene("", GetSceneRealName(SceneNameType.Level_00_MainlHallScene));
+        }
+
         Debug.Assert(SceneManager.GetActiveScene().name == GetSceneRealName(SceneNameType.Level_00_MainlHallScene));
     }
 
     // dont destroy : play must loaded-stuff
     // only switch lv00 lv01 lv02 lv03
     
-    IEnumerator SwitchScene(string sceneName){
+    IEnumerator SwitchCurrentScene(string sceneName){
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        return SwitchScene(currentSceneName, sceneName);
+    }
+
+    IEnumerator SwitchScene(string prevScene, string nextScene){
         switchSceneLock.WaitOne();
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name != sceneName)
+        if (prevScene != nextScene)
         {
-            if (!SceneManager.GetSceneByName(sceneName).IsValid())
+            if (!SceneManager.GetSceneByName(nextScene).IsValid())
             {
-                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
 
                 // while (!asyncLoad.isDone) { yield return null; }
                 while (!asyncLoad.isDone) { yield return new WaitForSeconds(0.05f); }
 
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
             }
 
             // SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByName(sceneName));
-            SceneManager.UnloadSceneAsync(currentScene);
+
+            if (prevScene != "")
+            {
+                SceneManager.UnloadSceneAsync(prevScene);
+            }
         }
 
         switchSceneLock.ReleaseMutex();
