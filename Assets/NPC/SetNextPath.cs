@@ -37,6 +37,13 @@ public class SetNextPath : MonoBehaviour
             dia.SetButtonPath(buttonpath);
             dia.SetAndStart();
         }
-        
+        if (other.gameObject.tag == "PlayerCapsule")
+        {
+            if (NPC != null)
+            {
+                NPC.GetComponent<NPCmove>().canwalk = true;
+            }
+        }
+
     }
 }

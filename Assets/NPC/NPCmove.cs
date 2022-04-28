@@ -35,12 +35,21 @@ public class NPCmove : MonoBehaviour
         else
         {
             stay();
+            if (currentWayPoint >= this.wayPointList.Length)
+            {
+                Invoke(nameof(NPCDisappear), 3);
+            }
         }
     }
 
     void stay() 
     {
-        //this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("idle");
+        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("idle");
+    }
+
+    void NPCDisappear()
+    {
+        this.gameObject.SetActive(false);
     }
 
     void walk()
@@ -49,19 +58,50 @@ public class NPCmove : MonoBehaviour
         transform.forward = Vector3.RotateTowards(transform.forward, targetWayPoint.position - transform.position, speed * Time.deltaTime, 0.0f);
 
         // move towards the target
-        transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
 
-        //this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("walk");
+        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("walk");
+       
 
-        if (transform.position == targetWayPoint.position)
+        if (Vector3.Distance(transform.position , targetWayPoint.position) < 1)//(transform.position == targetWayPoint.position)
         {
+            
+            if (wayPointList[currentWayPoint].name.Substring(0, 4) == "step")
+            {
+                canwalk = false;
+            }
+            
+            
             currentWayPoint++;
             if (currentWayPoint >= this.wayPointList.Length)
             {
+                Invoke(nameof( NPCDisappear), 5);
                 //out of range
                 return;
             }
-            targetWayPoint = wayPointList[currentWayPoint];
+            
+            for (int i = 0; i < wayPointList.Length; i++)
+            {
+                if (i == currentWayPoint)
+                {
+                    targetWayPoint = wayPointList[currentWayPoint];
+                    BoxCollider collider;
+                    if (wayPointList[i].TryGetComponent<BoxCollider>(out collider))
+                    {
+                        collider.enabled = true;
+                    }
+                    
+                }
+                else
+                {
+                    BoxCollider collider;
+                    if (wayPointList[i].TryGetComponent<BoxCollider>(out collider))
+                    {
+                        collider.enabled = false;
+                    }
+                }
+            }
+            
         }
     }
     private void OnTriggerEnter(Collider other)
