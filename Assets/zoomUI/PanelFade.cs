@@ -12,9 +12,10 @@ public class PanelFade : MonoBehaviour
     private bool _clickOn_p = true;
     private bool zoomon = false;
     public float opacity = 0.7f;
+    public GameObject panel;
     void Start()
     {
-        panelImg = GetComponent<Image>();
+        panelImg = panel.GetComponent<Image>();
         panelImg.color = new Color(panelImg.color.r, panelImg.color.g, panelImg.color.b, 0f);
         panelScale = panelImg.transform.localScale;
         panelImg.transform.localScale = new Vector3(panelScale.x * 0.05f, panelScale.y * 0.05f, panelScale.z * 0.05f);

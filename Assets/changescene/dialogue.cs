@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class dialogue : MonoBehaviour
 {
@@ -16,46 +17,115 @@ public class dialogue : MonoBehaviour
     public int lines_idx = 0;
     public int txt_idx = 0;
     public int paralinelen = 0; //now paragraph length
-    public int paraidx = 0; //now paragraph line idx
+    public int paraidx = -1; //store "-" position
     private int buttonidx = 0;
+
+    private string parapath;
+    private string buttonpath;
+    public GameObject storyball;
+    public GameObject NPC;
 
     // Start is called before the first frame update
     void Start()
     {
         //textcomponent.text = string.Empty; //initialize as empty string
-        string parapath = Application.dataPath + "/changescene/plot.txt"; // asset's path
-        Debug.Log(parapath);
+        ////parapath = Application.dataPath + "/changescene/plot.txt"; // asset's path
+        //Debug.Log(parapath);
+        //paragraph = System.IO.File.ReadAllLines(parapath);
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    textcomponent[i].text = string.Empty; 
+        //}
+        //paralinelen = paragraph.Length;
+        //paraidx = 0;
+        //lines_idx = 0;
+        //txt_idx = 0;
+       // SetParagString();
+
+        //buttonpath = Application.dataPath + "/changescene/buttonPlot.txt";
+        //buttonLine = System.IO.File.ReadAllLines(buttonpath);
+        //buttontext.text = string.Empty;
+        //buttonidx = 0;
+      //  SetButtonString();
+
+        //CreateLine();
+        //StartDialogue();
+    }
+    void SetParagString()
+    {
+        Array.Clear(paragraph, 0, paragraph.Length);
         paragraph = System.IO.File.ReadAllLines(parapath);
         for (int i = 0; i < 5; i++)
         {
-            textcomponent[i].text = string.Empty; 
+            textcomponent[i].text = string.Empty;
         }
         paralinelen = paragraph.Length;
-        paraidx = 0;
+        paraidx = -1;
         lines_idx = 0;
         txt_idx = 0;
-
-        string buttonpath = Application.dataPath + "/changescene/buttonPlot.txt";
+    }
+    public void SetButtonString()
+    {
+        Array.Clear(buttonLine, 0, buttonLine.Length);
+        //Debug.Log(buttonpath);
         buttonLine = System.IO.File.ReadAllLines(buttonpath);
         buttontext.text = string.Empty;
         buttonidx = 0;
-
-        CreateLine();
-        StartDialogue();
     }
+    public void SetParaPath(string path)
+    {
+        parapath = path;
+    }
+    public void SetButtonPath(string path)
+    {
+        buttonpath = path;
+    }
+
     public void ClickNextDia()
     {
         StopAllCoroutines();
         txt_idx = 0; // change
         lines_idx = 0; //change
         buttontext.text = string.Empty;
-        NextPara();
+        if (paraidx+1 >= paragraph.Length)
+        {
+            //end this storyball
+            Debug.Log("end");
+            storyball.GetComponent<MeshRenderer>().enabled =false;
+            for (int i = 0; i < 5; i++)
+            {
+                textcomponent[i].text = string.Empty;
+            }
+            Debug.Log("NPC:"+NPC);
+            if(NPC != null){
+                NPC.GetComponent<NPCmove>().canwalk = true;
+            }
+            
+            return;
+
+        }
+        else
+        {
+            Debug.Log("nextpara");
+            NextPara();
+        }
+        
     }
-    void StartDialogue()
+    public void SetAndStart()
+    {
+        Debug.Log("setandstart");
+        SetButtonString();
+        SetParagString();
+        
+        CreateLine();
+        StartDialogue();
+        
+    }
+    public void StartDialogue()
     {
         // while(lines[index]!=" ")
         //{
-        //Debug.Log("startdialogue");
+        Debug.Log("startdialogue");
         StartCoroutine(TypeLine());
         //}
         
@@ -72,7 +142,7 @@ public class dialogue : MonoBehaviour
         {
             txt_idx += 1;
             lines_idx += 1;
-            if (txt_idx < paralinelen)
+            if (txt_idx < paralinelen && lines_idx<5)
             {
                 //Debug.Log(txt_idx);
                 StartDialogue();
@@ -87,6 +157,11 @@ public class dialogue : MonoBehaviour
     }
     void SetbuttonText()
     {
+        Debug.Log("setbuttontext");
+        if(buttonidx >= buttonLine.Length)
+        {
+            return;
+        }
         buttontext.text = buttonLine[buttonidx];
         buttonidx += 1;
     }
@@ -103,22 +178,16 @@ public class dialogue : MonoBehaviour
         //Debug.Log("nextPAra");
         StartDialogue();
     }
-    //void CreateLine()
-    //{
-    //    lines[0] = "�A�޲z�F�U�ۤv�������A�Ө�F�U�Ӯi��";
-    //    lines[1] = "���i�קK���A�A�Q��F�A����";
-    //    lines[2] = "�Q��F�ȫ�а�̥L�u�^�����y�A�Q��F�ѩи̨���ª��Z��";
-    //}
     void CreateLine()
     {
         int index = 0;
-        for(int i = paraidx; i < paragraph.Length; i++)
+        for(int i = paraidx+1; i < paragraph.Length; i++)
         {
 
             if (paragraph[i] == "-")
             {
                 paralinelen = i - paraidx;
-                paraidx = i+1;
+                paraidx = i;
                 
                 //Debug.Log(paraidx);
                 break;

@@ -29,7 +29,7 @@ public class AnimatorControl_JelloMan : MonoBehaviour
     StateTrigger myStateTrigger;
     Animator myAnimator;
 
-    List<CharacterState> State;
+    List<CharacterState> State = new List<CharacterState>();
     
     
 

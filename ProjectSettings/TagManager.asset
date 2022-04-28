@@ -8,6 +8,10 @@ TagManager:
   - RenderPlane
   - PlayerCapsule
   - Card
+  - storyball
+  - step
+  - dialogue
+  - storyUI
   layers:
   - Default
   - TransparentFX
