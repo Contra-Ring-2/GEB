@@ -15,7 +15,7 @@ public class RingControl : MonoBehaviour
 
     private GameObject arc_prefab;
     //public const float _circle_time = 1; //6; //material's cycle time
-    public GameObject[] arcs = new GameObject[0];
+    public GameObject[] arcs = null;
 
     private RingGroup ringGroup;
 
@@ -138,7 +138,7 @@ public class RingControl : MonoBehaviour
 
     public void UpdateNotes(float time, float spc)
     {
-        if (arcs == null)
+        if (arcs == null || new List<GameObject>(arcs).Contains(null))
         {
             return;
         }
@@ -147,6 +147,11 @@ public class RingControl : MonoBehaviour
         Color _color2 = _color1 * 1.5f; // Color.white; // _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
         {
+            if (arcs[i] == null)
+            {
+                continue;
+            }
+
             if (local_notes[i].start_time < time && local_notes[i].end_time > time)
             {
                 //arcs[i].GetComponent<Renderer>().material.color = _color2;
@@ -197,17 +202,18 @@ public class RingControl : MonoBehaviour
     {
         if (arcs != null)
         {
+            var old_arcs = arcs;
+            arcs = null;
+
             // TODO: remove all cloned arcs
-            foreach (GameObject arc in arcs)
+            foreach (GameObject arc in old_arcs)
             {
                 Debug.Assert(arc != null);
 
                 arc.SetActive(false);
-                Destroy(arc);
+                // Destroy(arc);
             }
         }
-        
-        arcs = null;
     }
 
     // Update is called once per frame

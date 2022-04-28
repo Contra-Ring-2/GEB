@@ -17,13 +17,13 @@ public class PlayMusicGroupOnTrigger : MonoBehaviour
 
         if (other.tag == cardTag)
         {
-            Debug.Log("Add object: " + other);
+            Debug.Log("Add object: " + this + ", " + other + "; " + this.GetComponent<Collider>() + ", " + other.GetComponent<Collider>());
             GetComponent<MusicPanel>().AddObject(other.GetComponent<MusicConsumer>());
         }
 
         if (other.tag == triggerTag)
         {
-            Debug.Log("Start: " + other);
+            Debug.Log("Start: " + this + ", " + other + "; " + this.GetComponent<Collider>() + ", " + other.GetComponent<Collider>());
             GetComponent<MusicPanel>().StartExhibition();
         }
     }

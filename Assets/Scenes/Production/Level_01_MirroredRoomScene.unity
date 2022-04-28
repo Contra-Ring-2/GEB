@@ -6203,11 +6203,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259536413}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: -25.76, y: 67.46, z: -0.06666667}
-  m_LocalScale: {x: 0.8135333, y: 0.37197334, z: 0.8135333}
+  m_LocalPosition: {x: -10.32, y: 59.195, z: -0.050000004}
+  m_LocalScale: {x: 0.61015, y: 0.27898002, z: 0.61015}
   m_Children: []
-  m_Father: {fileID: 1423905423}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &259536415
 BoxCollider:
@@ -17257,11 +17257,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646047195}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: -28.053335, y: 0.781, z: 0.9866667}
-  m_LocalScale: {x: 0.8135333, y: 0.37197334, z: 0.8135333}
+  m_LocalPosition: {x: -12.040001, y: 9.18575, z: 0.74}
+  m_LocalScale: {x: 0.61015, y: 0.27898002, z: 0.61015}
   m_Children: []
-  m_Father: {fileID: 1423905423}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &646047197
 BoxCollider:
@@ -42321,6 +42321,10 @@ PrefabInstance:
       propertyPath: ringLocationOverride
       value: 
       objectReference: {fileID: 2081249085}
+    - target: {fileID: 2429054043765261490, guid: a432fb1a1cf50384991b982307ef3db1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7353695284694636666, guid: a432fb1a1cf50384991b982307ef3db1, type: 3}
       propertyPath: m_Name
       value: MusicPanel_Room1
@@ -42374,11 +42378,6 @@ PrefabInstance:
 --- !u!4 &1423905422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7353695284694636670, guid: a432fb1a1cf50384991b982307ef3db1, type: 3}
-  m_PrefabInstance: {fileID: 1423905421}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1423905423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2429054043765261491, guid: a432fb1a1cf50384991b982307ef3db1, type: 3}
   m_PrefabInstance: {fileID: 1423905421}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1429535624

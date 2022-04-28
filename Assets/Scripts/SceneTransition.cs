@@ -104,7 +104,7 @@ public class SceneTransition : MonoBehaviour
 
             // SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByName(sceneName));
 
-            if (prevScene != "")
+            if (prevScene != "" && SceneManager.GetSceneByName(prevScene).IsValid())
             {
                 SceneManager.UnloadSceneAsync(prevScene);
             }
