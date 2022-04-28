@@ -68,12 +68,15 @@ public class SceneTransition : MonoBehaviour
 
     private void Start()
     {
-        if (!SceneManager.GetSceneByName(GetSceneRealName(SceneNameType.Level_00_MainlHallScene)).IsValid())
-        {
-            SwitchScene("", GetSceneRealName(SceneNameType.Level_00_MainlHallScene));
-        }
+        string level0 = GetSceneRealName(SceneNameType.Level_00_MainlHallScene);
 
-        Debug.Assert(SceneManager.GetActiveScene().name == GetSceneRealName(SceneNameType.Level_00_MainlHallScene));
+        if (!SceneManager.GetSceneByName(level0).IsValid())
+        {
+            SwitchScene("", level0);
+        }
+        
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(level0));
+        // Debug.Assert(SceneManager.GetActiveScene().name == GetSceneRealName(SceneNameType.Level_00_MainlHallScene));
     }
 
     // dont destroy : play must loaded-stuff
