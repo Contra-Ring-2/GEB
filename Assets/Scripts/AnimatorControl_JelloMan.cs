@@ -53,7 +53,7 @@ public class AnimatorControl_JelloMan : MonoBehaviour
         CharacterState state_angry = new CharacterState("angry", 2);
         State.Add(state_angry);
         CharacterState state_walk = new CharacterState("walk", 3);
-        State.Add(state_angry);
+        State.Add(state_walk);
 
     }
 
@@ -92,17 +92,24 @@ public class AnimatorControl_JelloMan : MonoBehaviour
         int idx = 0;
         foreach (var state in State)
         {
+            Debug.Log(input +"  "+state.getName() + idx.ToString());
             if (input == state.getName())
             {
+                
                 flg = true;
                 idx = state.getIndex();
+                
             }
         }
 
         if (flg == true)
         {
             myAnimator.SetInteger("State", idx);
-            myStateTrigger(input);
+            if (myStateTrigger != null)
+            {
+                myStateTrigger(input);
+            }
+            
         }
         
 
