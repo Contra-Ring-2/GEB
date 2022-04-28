@@ -28945,6 +28945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897603816}
   - component: {fileID: 897603817}
+  - component: {fileID: 897603818}
   m_Layer: 0
   m_Name: NpcRoute
   m_TagString: Untagged
@@ -28992,6 +28993,26 @@ MonoBehaviour:
   - 
   - 
   buttonpaths: []
+--- !u!114 &897603818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897603815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c835d82d156f84ea5f58571a7916cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepLists:
+  - {fileID: 519753377}
+  - {fileID: 1650701783}
+  - {fileID: 19006553}
+  - {fileID: 1839409944}
+  - {fileID: 14172086}
+  curActiveIndex: 0
+  chapter: 0
 --- !u!1 &902527809
 GameObject:
   m_ObjectHideFlags: 0
