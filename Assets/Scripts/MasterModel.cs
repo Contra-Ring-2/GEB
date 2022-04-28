@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+// using UnityEditor.SceneManagement;
 
 public class MasterModel : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class MasterModel : MonoBehaviour
     void Start()
     {
         // allow cross scene references
-        EditorSceneManager.preventCrossSceneReferences = true;
+        // EditorSceneManager.preventCrossSceneReferences = true;
 
         Debug.Assert(TheModel == null);
         TheModel = this;
