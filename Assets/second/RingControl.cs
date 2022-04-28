@@ -9,6 +9,7 @@ using Note = MusicGroup.Note;
 public class RingControl : MonoBehaviour
 {
     public Color ringColor;
+    public Transform ringLocationOverride;
     //public float scaleMax = 2.2f;
     //public float scaleMin = 0.3f;
 
@@ -77,11 +78,14 @@ public class RingControl : MonoBehaviour
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
         {
-            GameObject newarc = Instantiate(arc_prefab);
+            Transform parent = ringLocationOverride ? ringLocationOverride : ringGroup.ringLocation;
+            GameObject newarc = Instantiate(arc_prefab, parent);
+            // newarc.transform.parent = ringLocationOverride ? ringLocationOverride : ringGroup.ringLocation;
+
             Material mat_newarc = new Material(newarc.GetComponent<Renderer>().material); // Instantiate(newarc.GetComponent<Renderer>().material);
 
-            // Debug:
-            newarc.transform.Translate(new Vector3(0, 0, 3));
+            // // Debug:
+            // newarc.transform.Translate(new Vector3(0, 0, 3));
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
             //float _time = (interval / 2f) + (notes[i].start_time); // * (_circle_time / spc);
