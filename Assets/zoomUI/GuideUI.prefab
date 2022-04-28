@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opacity: 0.7
+  panel: {fileID: 0}
 --- !u!1 &3103448697239376897
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opacity: 0.7
+  panel: {fileID: 3103448696451677005}
 --- !u!1 &8785192140960476336
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,14 +22,14 @@ public class dialogue : MonoBehaviour
 
     private string parapath;
     private string buttonpath;
-    public GameObject storyUI;
+    public GameObject storyball;
     public GameObject NPC;
 
     // Start is called before the first frame update
     void Start()
     {
         //textcomponent.text = string.Empty; //initialize as empty string
-        parapath = Application.dataPath + "/changescene/plot.txt"; // asset's path
+        ////parapath = Application.dataPath + "/changescene/plot.txt"; // asset's path
         //Debug.Log(parapath);
         //paragraph = System.IO.File.ReadAllLines(parapath);
         //for (int i = 0; i < 5; i++)
@@ -40,13 +40,13 @@ public class dialogue : MonoBehaviour
         //paraidx = 0;
         //lines_idx = 0;
         //txt_idx = 0;
-        SetParagString();
+       // SetParagString();
 
-        buttonpath = Application.dataPath + "/changescene/buttonPlot.txt";
+        //buttonpath = Application.dataPath + "/changescene/buttonPlot.txt";
         //buttonLine = System.IO.File.ReadAllLines(buttonpath);
         //buttontext.text = string.Empty;
         //buttonidx = 0;
-        SetButtonString();
+      //  SetButtonString();
 
         //CreateLine();
         //StartDialogue();
@@ -89,14 +89,18 @@ public class dialogue : MonoBehaviour
         buttontext.text = string.Empty;
         if (paraidx+1 >= paragraph.Length)
         {
-            //end this storyUI
+            //end this storyball
             Debug.Log("end");
-            storyUI.SetActive(false);
+            storyball.GetComponent<MeshRenderer>().enabled =false;
             for (int i = 0; i < 5; i++)
             {
                 textcomponent[i].text = string.Empty;
             }
-            NPC.GetComponent<NPCmove>().canwalk = true;
+            Debug.Log("NPC:"+NPC);
+            if(NPC != null){
+                NPC.GetComponent<NPCmove>().canwalk = true;
+            }
+            
             return;
 
         }

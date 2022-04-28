@@ -8,5 +8,6 @@ public class StartMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         NPC.GetComponent<NPCmove>().canwalk = true;
+        Debug.Log("StartMove");
     }
 }

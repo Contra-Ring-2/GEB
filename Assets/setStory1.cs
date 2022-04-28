@@ -13,7 +13,7 @@ public class setStory1 : MonoBehaviour
         parapath = Application.dataPath + "/Dialogue/Dialogue0_1.txt"; // change
         buttonpath = Application.dataPath + "/Dialogue/Button0_1.txt";
         dialogue = GameObject.FindWithTag("dialogue");
-        storyball = GameObject.FindWithTag("storyUI");
+        storyball = GameObject.FindWithTag("storyball");
         dialogue dia = dialogue.GetComponent<dialogue>();
         dia.SetParaPath(parapath);
         dia.SetButtonPath(buttonpath);

@@ -19,7 +19,7 @@ public class NPCmove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        canwalk = false;
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class NPCmove : MonoBehaviour
 
     void stay() 
     {
-        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("idle");
+        //this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("idle");
     }
 
     void walk()
@@ -51,7 +51,7 @@ public class NPCmove : MonoBehaviour
         // move towards the target
         transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
 
-        this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("walk");
+        //this.GetComponent<AnimatorControl_JelloMan>().ChangeStae("walk");
 
         if (transform.position == targetWayPoint.position)
         {
@@ -69,12 +69,17 @@ public class NPCmove : MonoBehaviour
         if(other.gameObject.tag == "step")
         {
             //stop
+            Debug.Log("step");
             canwalk = false;
         }
         //Debug.Log("collide : "+ dialogue.GetComponent<dialogue>());
         //storyball.SetActive(true);
         //dialogue.GetComponent<dialogue>().StartDialogue();
         //Debug.Log("collide");
+        if(other.gameObject.tag == "PlayerCapsule"){
+            Debug.Log("playercapsule");
+            canwalk = true;
+        }
     }
 
 }

@@ -10,6 +10,7 @@ TagManager:
   - storyball
   - step
   - dialogue
+  - storyUI
   layers:
   - Default
   - TransparentFX

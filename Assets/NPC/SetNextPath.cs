@@ -16,6 +16,8 @@ public class SetNextPath : MonoBehaviour
         string name_ = gameObject.name;
         ch = name_[gameObject.name.Length - 1];
         par = name_[gameObject.name.Length - 3];
+        storyball = GameObject.FindWithTag("storyball");
+        dialogue = GameObject.FindWithTag("dialogue");
         parapath = Application.dataPath + "/Dialogue/Dialogue" + par + "_" + ch + ".txt";
         buttonpath = Application.dataPath + "/Dialogue/Button" + par + "_" + ch + ".txt";
     }
@@ -24,11 +26,13 @@ public class SetNextPath : MonoBehaviour
     {
         if(other == NPC.GetComponent<Collider>())
         {
-            //Debug.Log(other);
-            storyball.SetActive(true);
-            dialogue = GameObject.FindWithTag("dialogue");
-            storyball = GameObject.FindWithTag("storyUI");
+            Debug.Log(this.gameObject);
+            Debug.Log(other.name);
+            //Debug.Log(storyball);
+            storyball.GetComponent<MeshRenderer>().enabled =true;
+            
             dialogue dia = dialogue.GetComponent<dialogue>();
+            dia.NPC = NPC;
             dia.SetParaPath(parapath);
             dia.SetButtonPath(buttonpath);
             dia.SetAndStart();

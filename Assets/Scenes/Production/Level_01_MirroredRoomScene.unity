@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 14172089}
   m_Layer: 0
   m_Name: step2_5
-  m_TagString: Untagged
+  m_TagString: step
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,10 +585,9 @@ GameObject:
   - component: {fileID: 19006554}
   - component: {fileID: 19006555}
   - component: {fileID: 19006556}
-  - component: {fileID: 19006557}
   m_Layer: 0
   m_Name: step2_3
-  m_TagString: Untagged
+  m_TagString: step
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,20 +628,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 19006553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194969ef1acebf246adfff149ea34176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 400112442}
---- !u!114 &19006557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19006553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bacbb2f3ab02ba45a4e766ce535427a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d6e342afd351da4e996effbe7879fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 400112442}
@@ -10956,6 +10942,35 @@ MonoBehaviour:
   currentWayPoint: 0
   speed: 4
   canwalk: 0
+--- !u!65 &400112444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400112442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &400112445
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400112442}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &404974852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12666,6 +12681,35 @@ MonoBehaviour:
   currentWayPoint: 0
   speed: 4
   canwalk: 0
+--- !u!65 &465915020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465915018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &465915021
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465915018}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &468045002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14138,11 +14182,10 @@ GameObject:
   m_Component:
   - component: {fileID: 519753378}
   - component: {fileID: 519753379}
-  - component: {fileID: 519753380}
   - component: {fileID: 519753381}
   m_Layer: 0
   m_Name: step2_1
-  m_TagString: Untagged
+  m_TagString: step
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14174,19 +14217,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 6, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &519753380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519753377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194969ef1acebf246adfff149ea34176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 465915018}
 --- !u!114 &519753381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14196,7 +14226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519753377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bacbb2f3ab02ba45a4e766ce535427a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d6e342afd351da4e996effbe7879fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 465915018}
@@ -34506,11 +34536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.48
+      value: -2.4800005
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.04242
+      value: 9.042419
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34522,15 +34552,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5653957772617571789, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -34546,6 +34576,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
+--- !u!1 &1152262942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4989201205409187703, guid: 3b46dd233f9506742bc78b5095bff16a, type: 3}
+  m_PrefabInstance: {fileID: 1152262941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1152262943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152262942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1152262944
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152262942}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1152262945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152262942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316b395f368a5ad45bc06d64fdc75f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPointList:
+  - {fileID: 519753378}
+  - {fileID: 1650701784}
+  currentWayPoint: 0
+  speed: 4
+  canwalk: 0
 --- !u!1001 &1152689753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47199,7 +47281,7 @@ GameObject:
   - component: {fileID: 1650701786}
   m_Layer: 0
   m_Name: step2_2
-  m_TagString: Untagged
+  m_TagString: step
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51640,7 +51722,7 @@ GameObject:
   - component: {fileID: 1839409947}
   m_Layer: 0
   m_Name: step2_4
-  m_TagString: Untagged
+  m_TagString: step
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

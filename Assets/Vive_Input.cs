@@ -28,7 +28,7 @@ public class Vive_Input : MonoBehaviour
     private void Update(){
         //Debug.Log(m_MoveValue);
         // Debug.Log(string.Format("Vector2({0})", m_MoveValueLeft.axis));
-        Debug.Log(string.Format("Vector2({0})", m_MoveValueRight.axis));
+        //Debug.Log(string.Format("Vector2({0})", m_MoveValueRight.axis));
 
         // Valve.VR.InteractionSystem.Player player = GameObject.FindWithTag("Player").GetComponent<Valve.VR.InteractionSystem.Player>();
         // Debug.Log(string.Format("player origin: Pos=({0}), Rot=({1})", player.trackingOriginTransform.position, player.trackingOriginTransform.rotation));
