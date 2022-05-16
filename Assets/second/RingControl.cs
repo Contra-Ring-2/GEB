@@ -9,12 +9,13 @@ using Note = MusicGroup.Note;
 public class RingControl : MonoBehaviour
 {
     public Color ringColor;
+    public Transform ringLocationOverride;
     //public float scaleMax = 2.2f;
     //public float scaleMin = 0.3f;
 
     private GameObject arc_prefab;
     //public const float _circle_time = 1; //6; //material's cycle time
-    public GameObject[] arcs;
+    public GameObject[] arcs = null;
 
     private RingGroup ringGroup;
 
@@ -25,9 +26,20 @@ public class RingControl : MonoBehaviour
     private GameObject newArc;
     void Start()
     {
-        ringGroup = transform.parent.GetComponent<RingGroup>();
-        Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
+        // ringGroup = transform.parent.GetComponent<RingGroup>();
+        // Debug.Assert(ringGroup != null, "RingControl needs a parent RingGroup object");
+        ringGroup = null;
+        for (Transform anc = transform.parent; anc != null; anc = anc.parent)
+        {
+            ringGroup = anc.GetComponent<RingGroup>();
+            
+            if (ringGroup != null)
+            {
+                break;
+            }
+        }
 
+        Debug.Assert(ringGroup != null, "RingControl needs an ancestor RingGroup");
         Debug.Assert(GetComponent<MusicConsumer>() != null, "RingControl needs a MusicConsumer");
 
         ringGroup.AddControl(this);
@@ -39,21 +51,41 @@ public class RingControl : MonoBehaviour
         local_notes = notes;
 
         // analyze height of notes
+        /*
         float heightMin = 1e20f, heightMax = -1e20f;
         foreach (Note note in notes)
         {
             heightMin = Math.Min(heightMin, note.hieght);
             heightMax = Math.Max(heightMax, note.hieght);
         }
+        */
 
-        float heightRange = heightMax - heightMin;
+        //float heightRange = heightMax - heightMin;
+        // float heightRange = 48;
+        float heightRange = ringGroup.heightMax - ringGroup.heightMin;
+
+        {
+            float heightMin = 1e20f, heightMax = -1e20f;
+            foreach (Note note in notes)
+            {
+                heightMin = Math.Min(heightMin, note.hieght);
+                heightMax = Math.Max(heightMax, note.hieght);
+            }
+
+            Debug.Log(string.Format("Ring: [{0}, {1}]", heightMin, heightMax));
+        }
 
         arcs = new GameObject[notes.Length];
         for (int i = 0; i < notes.Length; i++)
         {
-            GameObject newarc = Instantiate(arc_prefab);
+            Transform parent = ringLocationOverride ? ringLocationOverride : ringGroup.ringLocation;
+            GameObject newarc = Instantiate(arc_prefab, parent);
+            // newarc.transform.parent = ringLocationOverride ? ringLocationOverride : ringGroup.ringLocation;
+
             Material mat_newarc = new Material(newarc.GetComponent<Renderer>().material); // Instantiate(newarc.GetComponent<Renderer>().material);
 
+            // // Debug:
+            // newarc.transform.Translate(new Vector3(0, 0, 3));
 
             float interval = (notes[i].end_time - notes[i].start_time) / spc;
             //float _time = (interval / 2f) + (notes[i].start_time); // * (_circle_time / spc);
@@ -71,7 +103,7 @@ public class RingControl : MonoBehaviour
                 float ratio = (float) Math.Pow(scaleMax / scaleMin, 1 / heightRange);
 
                 //float scaleFac = 2 * (notes[i].hieght); // 1 + (notes[i].hieght / hieght_range);
-                float scaleFac = (float) (scaleMin * Math.Pow(ratio, notes[i].hieght - heightMin));
+                float scaleFac = (float) (scaleMin * Math.Pow(ratio, notes[i].hieght - ringGroup.heightMin));
                 newarc.transform.localScale = new Vector3(scaleFac, scaleFac, scaleFac);
             }
 
@@ -95,16 +127,31 @@ public class RingControl : MonoBehaviour
     // TODO: beats per measure (time signature)
     public void Play(float tempo, int partIdx)
     {
+        if (!GetComponent<MusicConsumer>().isEnabled)
+        {
+            return;
+        }
+
         Note[] notes = GetComponent<MusicConsumer>().GetNotes(partIdx);
         CreateRing(notes, (60 / tempo) * 8); //, 50);
     }
 
     public void UpdateNotes(float time, float spc)
     {
+        if (arcs == null || new List<GameObject>(arcs).Contains(null))
+        {
+            return;
+        }
+
         Color _color1 = ringColor; // arcs[0].GetComponent<Renderer>().material.GetColor("Color_"); // arcs[0].GetComponent<Renderer>().material.color; //.GetFloat("")
-        Color _color2 = Color.white; // _color1 * 1.2f;
+        Color _color2 = _color1 * 1.5f; // Color.white; // _color1 * 1.2f;
         for (int i = 0; i < arcs.Length; i++)
         {
+            if (arcs[i] == null)
+            {
+                continue;
+            }
+
             if (local_notes[i].start_time < time && local_notes[i].end_time > time)
             {
                 //arcs[i].GetComponent<Renderer>().material.color = _color2;
@@ -148,12 +195,25 @@ public class RingControl : MonoBehaviour
 
     public void Pause()
     {
-
+        
     }
 
     public void Stop()
     {
-        // TODO: remove all cloned arcs
+        if (arcs != null)
+        {
+            var old_arcs = arcs;
+            arcs = null;
+
+            // TODO: remove all cloned arcs
+            foreach (GameObject arc in old_arcs)
+            {
+                Debug.Assert(arc != null);
+
+                arc.SetActive(false);
+                // Destroy(arc);
+            }
+        }
     }
 
     // Update is called once per frame

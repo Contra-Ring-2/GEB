@@ -15,7 +15,12 @@ public class RingGroup : MonoBehaviour
 	public float scaleMax = 2.2f;
 	public float scaleMin = 0.3f;
 
-	public void PlayAllRings(float tempo)
+    public float heightMin = 7;
+    public float heightMax = 42;
+
+	public Transform ringLocation;
+
+    public void PlayAllRings(float tempo)
 	{
 		for (int i = 0; i < rings.Count; i++)
 		{

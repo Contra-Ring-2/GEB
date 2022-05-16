@@ -6,6 +6,12 @@ TagManager:
   tags:
   - CinemachineTarget
   - RenderPlane
+  - PlayerCapsule
+  - Card
+  - storyball
+  - step
+  - dialogue
+  - storyUI
   layers:
   - Default
   - TransparentFX

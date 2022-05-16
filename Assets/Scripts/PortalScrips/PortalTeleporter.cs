@@ -13,6 +13,7 @@ public class PortalTeleporter : MonoBehaviour {
 
 	private void Start()
 	{
+		player = GameObject.FindGameObjectWithTag("Player");
 		player_transform = player.transform;
 	}
 
@@ -20,7 +21,7 @@ public class PortalTeleporter : MonoBehaviour {
 	{
 		if (setActiveNextTick)
 		{
-			player.GetComponent<CharacterController>().enabled = true;
+			//player.GetComponent<CharacterController>().enabled = true;
 			setActiveNextTick = false;
 		}
 
@@ -39,7 +40,7 @@ public class PortalTeleporter : MonoBehaviour {
 				player_transform.Rotate(Vector3.up, rotationDiff);
 				Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
 
-				player.GetComponent<CharacterController>().enabled = false;
+				//player.GetComponent<CharacterController>().enabled = false;
 				setActiveNextTick = true;
 				player_transform.position = receiver.position + positionOffset;
 
@@ -52,7 +53,8 @@ public class PortalTeleporter : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player")
+		Debug.Log("Enter:" + other.name + ":" + other.tag);
+		if (other.tag == "PlayerCapsule")
 		{
 			playerIsOverlapping = true;
 		}
@@ -60,7 +62,7 @@ public class PortalTeleporter : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.tag == "Player")
+		if (other.tag == "PlayerCapsule")
 		{
 			playerIsOverlapping = false;
 		}

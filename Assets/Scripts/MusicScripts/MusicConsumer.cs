@@ -159,7 +159,7 @@ public class MusicConsumer : MonoBehaviour
 
             // TODO: parse/calculate these
             float beatPerMeasure = 4.0f;
-            float partBaseHieght = 8.0f * partIdx;
+            // float partBaseHieght = 8.0f * partIdx;
 
             {
                 float measureOffset = 0.0f;
@@ -191,29 +191,33 @@ public class MusicConsumer : MonoBehaviour
                             float duration = float.Parse(
                                 note.SelectSingleNode("duration").InnerText
                             );
-
-                            XmlNode pitch = note.SelectSingleNode("pitch");
-                            Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
-
-                            string step = pitch.SelectSingleNode("step").InnerText;
-                            float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
-
-                            float noteStart = measureOffset + noteOffset;
-                            float pitchValue = keyValue[step] + octave*7.0f;
                             float noteLength = duration / division;
 
-                            float noteStartSec = waitSec + secPerBeat * noteStart;
-                            float pitchHeight = partBaseHieght + keyShift + (1.0f + pitchValue);
-                            float noteLengthSec = secPerBeat * noteLength;
-
-                            MusicGroup.Note note1 = new MusicGroup.Note
+                            if (note.SelectSingleNode("rest") == null)
                             {
-                                start_time = noteStartSec,
-                                end_time   = noteStartSec + noteLengthSec,
-                                hieght     = pitchHeight
-                            };
+                                XmlNode pitch = note.SelectSingleNode("pitch");
+                                Debug.Assert(pitch != null, string.Format("{0} does not contain 'pitch'", note.InnerXml));
 
-                            notes.Add(note1);
+                                string step = pitch.SelectSingleNode("step").InnerText;
+                                float octave = float.Parse(pitch.SelectSingleNode("octave").InnerText);
+
+                                float noteStart = measureOffset + noteOffset;
+                                float pitchValue = keyValue[step] + octave*7.0f;
+                                // float noteLength = duration / division;
+
+                                float noteStartSec = waitSec + secPerBeat * noteStart;
+                                float pitchHeight = keyShift + (1.0f + pitchValue);
+                                float noteLengthSec = secPerBeat * noteLength;
+
+                                MusicGroup.Note note1 = new MusicGroup.Note
+                                {
+                                    start_time = noteStartSec,
+                                    end_time   = noteStartSec + noteLengthSec,
+                                    hieght     = pitchHeight
+                                };
+
+                                notes.Add(note1);
+                            }
 
                             lastNoteLength = noteLength;
                         }
@@ -224,14 +228,100 @@ public class MusicConsumer : MonoBehaviour
             }
         }
 
-        return notes.ToArray();
+        return applyModifier(notes.ToArray());
+    }
+
+    public MusicGroup.Note[] applyModifier(MusicGroup.Note[] notes)
+    {
+        List<MusicGroup.Note> res = new List<MusicGroup.Note>(notes);
+        if ((modifier & MusicGroup.FlipModifier.VFLIP) > 0)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            foreach (MusicGroup.Note note in res)
+            {
+                // pitchHeight = keyShift + (1.0f + pitchValue);
+                float pitchHeight = note.hieght;
+                float pitchValue = pitchHeight - keyShift - 1.0f;
+
+                float newPitch = musicGroup.vFlipOffset - pitchValue;
+                float newPitchHeight = keyShift + (1.0f + newPitch);
+
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = note.start_time,
+                        end_time = note.end_time,
+                        hieght = newPitchHeight
+                    }
+                );
+            }
+
+            res = newres;
+        }
+
+        if ((modifier & MusicGroup.FlipModifier.HFLIP) > 0)
+        {
+            List<MusicGroup.Note> newres = new List<MusicGroup.Note>();
+
+            float endTime = -1e20F;
+            foreach (var note in res)
+            {
+                endTime = Math.Max(endTime, note.end_time);
+            }
+
+            foreach (var note in res)
+            {
+                newres.Add(
+                    new MusicGroup.Note
+                    {
+                        start_time = endTime - note.end_time,
+                        end_time = endTime - note.start_time,
+                        hieght = note.hieght
+                    }
+                );
+            }
+
+            res = newres;
+            
+            // Debug:
+            Debug.Log("Is HFLIP:");
+            foreach (var note in res)
+            {
+                Debug.Log(note);
+            }
+        }
+
+        // Debug:
+        {
+            foreach (var note in res)
+            {
+                note.start_time += 60 / musicGroup.tempo;
+                note.end_time += 60 / musicGroup.tempo;
+            }
+        }
+
+        return res.ToArray();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        musicGroup = transform.parent.GetComponent<MusicGroup>();
-        Debug.Assert(musicGroup != null, "MusicCosumer needs a parent MusicGroup object");
+        musicGroup = null;
+
+        // Transform root = transform.root;
+        for (Transform anc = transform.parent; anc != null; anc = anc.parent)
+        {
+            musicGroup = anc.GetComponent<MusicGroup>();
+            
+            if (musicGroup != null)
+            {
+                break;
+            }
+        }
+
+        // musicGroup = transform.parent.GetComponent<MusicGroup>();
+        Debug.Assert(musicGroup != null, "MusicCosumer needs an ancestor with MusicGroup");
 
         //if (targetTempo == 0.0f)
         //{
