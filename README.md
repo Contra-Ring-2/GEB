@@ -4,6 +4,7 @@
 2022 年 XR Camp 專案 2，第 5 組。
 
 ## 關於專題
+- 原名：Contra-Ring 對位法環
 - 類別：虛擬實境遊戲
 - 平台：HTC Vive
 - 架構：Unity, SteamVR
